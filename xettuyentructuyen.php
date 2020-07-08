@@ -1,8 +1,9 @@
 <?php
 include("header.php");
 ?>
-
-<div class="col">
+<main class="main-content" style="margin-top:35px">
+    <div class="container">
+    <div class="col">
         <div class="row">
             <div class="col-sm-12 col-12">
                 <div class="admission-title" style="background:#001373">
@@ -196,7 +197,8 @@ include("header.php");
             </div>
         </div>
     </div>
-
+    </div>
+</main>
 <?php
 include("footer.php")
 ?>

@@ -74,7 +74,7 @@
                 </ul>
             </li>
             <li>
-                <a href="xet/xettuyentructuyen.php">Đăng ký xét tuyển đại học</a>
+                <a href="xettuyentructuyen.php">Đăng ký xét tuyển đại học</a>
             </li>
         </ul>
         </nav>

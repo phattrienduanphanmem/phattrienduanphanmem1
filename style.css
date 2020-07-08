@@ -706,7 +706,12 @@ body {
     border-bottom: 1px dotted #4e4e4e;
     margin-bottom: 23px;
   }
-  
+  label{
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-weight:700 ;
+    max-width: 100%;
+  }
   .news-item {
     display: -ms-flexbox;
     display: flex;
