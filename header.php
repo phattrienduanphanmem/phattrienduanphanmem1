@@ -1,16 +1,17 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Quản Lý Lịch Trình Giảng Dạy</title>
+    <title>Cổng thông tin trường đại học Thủy Lợi</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="skins/css/bootstrap.min.css" >
-    <link rel="stylesheet" href="skins/css/all.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="xet/style.css">
+    <link rel="stylesheet" href="xettuyen.css">
+    
   </head>
   <body>
   <form method="post" action="/" id="Form" enctype="multipart/form-data">
@@ -21,7 +22,7 @@
         <div class="col-md-7">
           <div class="header-brand">
             <a href="/">
-                <img src="skins/images/logo.png" alt="Trường Đại học Thủy lợi" class="d-none d-md-block">
+                <img src="images/logo.png" alt="Trường Đại học Thủy lợi" class="d-none d-md-block">
             </a>
           </div>
         </div>
@@ -29,7 +30,7 @@
           <div class="header-right">
             <ul class="header-links">
               <li><a href="#">Đăng ký</a></li>
-              <li><a href="#">Đăng nhập</a></li>
+              <li><a href="login.php">Đăng nhập</a></li>
               <li><a href="#">Liên hệ</a></li>
             </ul>
 <!--Begin Search-->

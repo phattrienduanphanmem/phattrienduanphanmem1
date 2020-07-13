@@ -10,9 +10,9 @@
             <h3><span id="dnn_dnnCopyright_lblCopyright" class="SkinObject">©  2020 - TRƯỜNG ĐẠI HỌC THỦY LỢI</span></h3>
           </div>
           <div class="col-md-4 text-right">
-            <a href="https://www.facebook.com/daihocthuyloi1959/?fref=ts" target="_blank"><img src="skins/images/fb-icon.png"></a>
-            <a href="https://www.youtube.com/user/daihocthuyloi" target="_blank"><img src="skins/images/ytb-icon.png"></a>
-            <a href="https://twitter.com/Daihocthuyloihn" target="_blank"><img src="skins/images/twitter-icon.png"></a>
+            <a href="https://www.facebook.com/daihocthuyloi1959/?fref=ts" target="_blank"><img src="images/fb-icon.png"></a>
+            <a href="https://www.youtube.com/user/daihocthuyloi" target="_blank"><img src="images/ytb-icon.png"></a>
+            <a href="https://twitter.com/Daihocthuyloihn" target="_blank"><img src="images/twitter-icon.png"></a>
           </div>
         </div>
       </div>
@@ -20,7 +20,7 @@
     <div class="footer-middle">
       <div class="container">
 	<div class="row">
-<div class="col-md-4"><a href="#" target="_blank"><img alt="Image" src="skins/images/TLU-map.png"> </a></div>
+<div class="col-md-4"><a href="#" target="_blank"><img alt="Image" src="images/TLU-map.png"> </a></div>
 <div class="col-md-8">
 <div class="row">
 <div class="col-md-6">
@@ -55,9 +55,9 @@ Email: <a href="#"> trungtamdh2@tlu.edu.vn</a></div>
       </div>
     </div><!-- /.footer-middle -->
   </footer>
-    <script src="skins/js/jquery-3.4.1.min.js"></script>
-    <script src="skins/js/bootstrap.min.js" ></script>
-    <script src="skins/js/javascrip.js" ></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js" ></script>
+    <script src="js/javascrip.js" ></script>
     </form>
   </body>
 </html>

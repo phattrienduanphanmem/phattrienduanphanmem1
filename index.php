@@ -2,7 +2,7 @@
 include("header.php");
 ?>
 <div class="banner-item slick-slide slick-current slick-active">
-    <img src= skins/images/banner-img-3.jpg >
+    <img src=images/banner-img-3.jpg >
 </div>
 <main class="main-content">
     <div class="container">
@@ -17,5 +17,5 @@ include("header.php");
     </div>
 </main>
 <?php
-include("footer.php")
+include("footer.php");
 ?>
