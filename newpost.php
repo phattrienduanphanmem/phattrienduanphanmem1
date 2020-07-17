@@ -7,12 +7,6 @@ $row = mysqli_fetch_assoc(mysqli_query($conn, $sql));
 $maquyen = $row['maquyen'];
 ?>
 
-<?php
-$sql  = "select * from taikhoan where maquyen != 3";
-mysqli_set_charset($conn, 'UTF8');
-$result = mysqli_query($conn, $sql);
-?>
-
 <body id="page-top">
     <div id="wrapper">
     <?php include("menu.php");?>
@@ -21,13 +15,14 @@ $result = mysqli_query($conn, $sql);
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
                         <nav class="navbar navbar-light navbar-expand-md">
-                            <div class="container-fluid"><a class="navbar-brand" href="User.php?id=<?php echo $matk?>">User</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-2"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                            <div class="container-fluid"><a class="navbar-brand" href="Post.php?id=<?php echo $matk?>">Posts</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-2"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                                 <div class="collapse navbar-collapse"
                                     id="navcol-2">
                                     <ul class="nav navbar-nav">
-                                        <li class="nav-item" role="presentation"><a class="nav-link active" href="Register.php?id=<?php echo $matk?>">Thêm admin</a></li>
-                                        <li class="nav-item" role="presentation"><a class="nav-link" href="capquyen.php?id=<?php echo $matk?>">Câp quyền</a></li>
-                                        <li class="nav-item" role="presentation"><a class="nav-link" href="xoataikhoan.php?id=<?php echo $matk?>">Xóa</a></li>
+
+                                        <li class="nav-item" role="presentation"><a class="nav-link" href="newpost.php?id=<?php echo $matk?>">New posts</a></li>
+                                        <li class="nav-item" role="presentation"><a class="nav-link" href="repair.php?id=<?php echo $matk?>">Repair</a></li>
+                                        <li class="nav-item" role="presentation"><a class="nav-link" href="deletepost.php?id=<?php echo $matk?>">Delete posts</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -45,32 +40,12 @@ $result = mysqli_query($conn, $sql);
                     </ul>
             </div>
             </nav>
-            <form class="form-capquyen" method="POST" action="xulycapquyen.php?id=<?php echo $matk?>">
-            <div class="row">
-            <div class="col-md-3">
-                <select name="taikhoan" id="taikhoan" class="form-control">
-                <option value=""></option>
-                <?php
-                if (mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<option value="' . $row['email'] . '">' . $row['email'] . '</option>';
-                    }
-                }
-                ?>
-                </select>
-            </div>
-            <div class="col-md-2">
-                <select name="quyen" id="quyen" class="form-control">
-                <option value=""></option>
-                <option value="admin">Admin</option>
-                <option value="manager">Manager</option>
-                <option value="viewer">Viewer</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <button class="btn btn-primary" type="submit"id="capquyen" name="capquyen">Cấp quyền</button>
-            </div>
-            </div>
+            <form class="form-register" method="POST" enctype="multipart/form-data" action="xulytaopost.php?id=<?php echo $matk?>">
+                <div class="container-fluid">
+                    <h6 style="color: rgb(0,0,0);">Tiêu đề bài viết</h6><input class="form-control" id="tieude"name="tieude" type="text" required autofocus>
+                    <input type="file" name="image" id="image" class="form-control " style="margin-top:20px">
+                    <h6 style="color: rgb(0,0,0);">Nội dung</h6><input class="form-control" id="noidung" name="noidung" type="text" required>
+                <hr><button class="btn btn-primary" type="submit"id="newpost" name="newpost">Tạo bài viết</button></div>
             </form>
         </div>
         <footer class="bg-white sticky-footer">

@@ -7,10 +7,17 @@
     if (mysqli_num_rows($result) == 1 ) {
         $row = mysqli_fetch_assoc($result);
         if (password_verify($matkhau,$row['matkhau'])) {
+            if($row['trangthai']=='1'){
             echo '<script language="javascript">';
             echo 'location.href="admin.php?id='.$row['matk'].'";';
             echo '</script>';
             }
+            else{
+                echo '<script language="javascript">';
+                echo 'location.href="kichhoat.php?id='.$row['matk'].'";';
+                echo '</script>';
+            }
+        }
         else {           
             echo '<script language="javascript">';
             echo 'alert("Sai mật khẩu");';

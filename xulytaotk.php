@@ -8,11 +8,14 @@
     $result = mysqli_query($conn,$timemail);
     $row = mysqli_fetch_assoc($result);
     $pass = password_hash($matkhau,PASSWORD_DEFAULT);
+    $subject = "Mã kích hoạt email";
+    $txt=md5(time());
+    $headers = "From: duongtienthang123456789@gmail.com";
     if(empty($row['Email'])){
-        $sql = "INSERT INTO taikhoan(tentk,email,matkhau,maquyen) 
-        values ('$tentk','$email','$pass','1');";
+        $sql = "INSERT INTO taikhoan(tentk,email,matkhau,maquyen,trangthai,maxacnhan) 
+        values ('$tentk','$email','$pass','1','0','$txt');";
         mysqli_set_charset($conn,'UTF8');
-        if(mysqli_query($conn,$sql)){
+        if(mysqli_query($conn,$sql)&mail($email,$subject,$txt,$headers)){
             echo '<script language="javascript">';
             echo 'alert("Tạo tài khoản thành công");';
             echo 'location.href="Register.php?id='.$matk.'";';

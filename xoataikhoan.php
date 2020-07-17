@@ -2,7 +2,8 @@
 include("head.php");$matk=$_GET['id'];
 require('connect.php');
 $sql = "Select * from taikhoan where matk = '$matk'";
-$maquyen = mysqli_fetch_assoc(mysqli_query($conn, $sql))['maquyen'];
+$row = mysqli_fetch_assoc(mysqli_query($conn, $sql));
+$maquyen = $row['maquyen'];
 ?>
 
 <?php
@@ -32,7 +33,7 @@ $result = mysqli_query($conn, $sql);
                         </nav>
                         <ul class="nav navbar-nav flex-nowrap ml-auto">
                             <li class="nav-item dropdown no-arrow" role="presentation">
-                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small">Admin Yh</span><img class="border rounded-circle img-profile" src="images/avatar5.jpeg"></a>
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small"><?php echo $row['tentk']?></span><img class="border rounded-circle img-profile" src="images/avatar5.jpeg"></a>
                                     <div
                                         class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
                                         <a

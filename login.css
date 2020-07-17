@@ -3,11 +3,11 @@ body {
     font-family: "HelveticaNeue", "Arial", sans-serif;
 }
 a {
-    color: #58bff6;
+    color: #ffffff;
     text-decoration: none;
 }
 a:hover {
-    color: #aaa;
+    color: #000000;
 }
 .pull-right {
     float: right;
@@ -124,7 +124,7 @@ button {
 button:hover {
     background-color: #fff;
     border: 1px solid #55b1df;
-    color: #55b1df;
+    color: #858796;
     cursor: pointer;
 }
 button:focus {
