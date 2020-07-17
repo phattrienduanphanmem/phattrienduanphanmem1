@@ -13,10 +13,10 @@ $row = mysqli_fetch_assoc(mysqli_query($conn, $sql));
         </div>
         <form action="xulymatkhaumoi.php?id=<?php echo $matk?>"method="POST">
         <div class="form-item">
-            <input class="form-control" id="matkhau"name="matkhau" type="text" placeholder="Mật khẩu mới" required autofocus>
+            <input class="form-control" id="matkhau"name="matkhau" type="password" placeholder="Mật khẩu mới" required autofocus>
         </div>
         <div class="form-item">
-            <input class="form-control" id="nhaplai"name="nhaplai" type="text" placeholder="Nhập lại mật khẩu" required autofocus>
+            <input class="form-control" id="nhaplai"name="nhaplai" type="password" placeholder="Nhập lại mật khẩu" required autofocus>
         </div>
         <button id="kichhoat" type="submit" class="btn_login pull-right" name="kichhoat">Đổi mật khẩu</button>
         </form>

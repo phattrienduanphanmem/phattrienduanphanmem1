@@ -3,7 +3,7 @@ body {
     font-family: "HelveticaNeue", "Arial", sans-serif;
 }
 a {
-    color: #ffffff;
+    color: #55b1df;
     text-decoration: none;
 }
 a:hover {
@@ -124,7 +124,7 @@ button {
 button:hover {
     background-color: #fff;
     border: 1px solid #55b1df;
-    color: #858796;
+    color: #000000;
     cursor: pointer;
 }
 button:focus {
