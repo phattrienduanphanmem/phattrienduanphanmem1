@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th7 17, 2020 lúc 03:08 CH
+-- Thời gian đã tạo: Th7 22, 2020 lúc 01:46 SA
 -- Phiên bản máy phục vụ: 10.4.10-MariaDB
 -- Phiên bản PHP: 5.6.30
 
@@ -23,25 +23,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `post`
+-- Cấu trúc bảng cho bảng `baiviet`
 --
 
-CREATE TABLE `post` (
-  `IDpost` int(5) UNSIGNED NOT NULL,
-  `namepost` varchar(100) NOT NULL,
-  `image` varchar(50) DEFAULT NULL,
-  `text` varchar(2000) DEFAULT NULL,
-  `date` datetime NOT NULL
+CREATE TABLE `baiviet` (
+  `mabv` int(5) UNSIGNED NOT NULL,
+  `chude` varchar(100) NOT NULL,
+  `tieude` varchar(100) NOT NULL,
+  `anh` varchar(200) DEFAULT NULL,
+  `noidung` varchar(2000) DEFAULT NULL,
+  `ngaytao` datetime NOT NULL,
+  `matk` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `post`
+-- Đang đổ dữ liệu cho bảng `baiviet`
 --
 
-INSERT INTO `post` (`IDpost`, `namepost`, `image`, `text`, `date`) VALUES
-(8, 'areher', 'rewhwreh', 'edrherhsdf', '2020-07-14 02:17:55'),
-(9, '123', 'bobobob', 'edrherhsdf', '2020-07-14 02:18:17'),
-(10, 'areher', 'rewhwreh', 'Căn cứ Công văn số 1778/BGDĐT-GDĐH ngày 22/5/2020 về hướng dẫn công tác tuyển sinh trình độ đại học của Bộ Giáo dục và Đào tạo,Trường Đại học Thủy lợi thông báo tuyển sinh đại học hệ chính quy năm 2020', '2020-07-14 02:25:05');
+INSERT INTO `baiviet` (`mabv`, `chude`, `tieude`, `anh`, `noidung`, `ngaytao`, `matk`) VALUES
+(4, 'Tuyển sinh tiến sĩ', ' Hướng dẫn thí sinh kiểm tra hồ sơ đăng ký xét tuyển online', 'images/images_post/0e78cc85ad6080a9d1bbd6f11db5193c5b02809d5d29c_4080eda1a706ce63f272259076427490.jpg', 'Để kiểm tra kết quả đăng ký xét tuyển vào trường theo hình thức xét tuyển học bạ online, Nhà trường sẽ xem kỹ các bước sau:', '2020-07-20 12:06:15', 17),
+(5, 'Tuyển sinh đại học', 'Trường Đại học Thủy lợi thông báo Tuyển sinh đại học hệ chính quy năm 2020', 'images/images_post/18-hinh-nen-powerpoint-mau-tim-giup-bai-thuyet-trinh-them-thu-hut-1489724046-9.gif', 'Căn cứ Công văn số 1778/BGDĐT-GDĐH ngày 22/5/2020 về hướng dẫn công tác tuyển sinh trình độ đại học của Bộ Giáo dục và Đào tạo,Trường Đại học Thủy lợi thông báo tuyển sinh đại học hệ chính quy năm 2020', '2020-07-20 02:22:11', 17),
+(8, 'Tuyển sinh thạc sĩ', 'Trường Đại học Thủy lợi thông báo Tuyển sinh đại học hệ chính quy năm 2020', 'images/images_post/20-hinh-nen-don-gian-dam-chat-ca-tinh-danh-cho-bai-thuyet-trinh-1494511523-7.jpg', 'sdgqasd', '2020-07-20 12:15:07', 17),
+(10, 'Tin tức đại học', ' Hướng dẫn thí sinh kiểm tra hồ sơ đăng ký xét tuyển online', 'images/images_post/40-hinh-nen-powerpoint-ve-moi-truong-cuc-chat-cho-bai-thuyet-trinh-10.png', 'Căn cứ Công văn số 1778/BGDĐT-GDĐH ngày 22/5/2020 về hướng dẫn công tác tuyển sinh trình độ đại học của Bộ Giáo dục và Đào tạo,Trường Đại học Thủy lợi thông báo tuyển sinh đại học hệ chính quy năm 2020', '2020-07-20 12:06:55', 17),
+(11, 'Tin tức sau đại học', 'werfwef', 'images/images_post/e95ac6254fea4fcb59bc4cd21190796c.png', 'Căn cứ Công văn số 1778/BGDĐT-GDĐH ngày 22/5/2020 về hướng dẫn công tác tuyển sinh trình độ đại học của Bộ Giáo dục và Đào tạo,Trường Đại học Thủy lợi thông báo tuyển sinh đại học hệ chính quy năm 2020', '2020-07-20 12:07:14', 17),
+(12, 'Tuyển sinh đại học', 'Trường Đại học Thủy lợi thông báo Tuyển sinh đại học hệ chính quy năm 2020', 'images/images_post/d11ae123005e6bd62e396af49924d3b2.png', 'Căn cứ Công văn số 1778/BGDĐT-GDĐH ngày 22/5/2020 về hướng dẫn công tác tuyển sinh trình độ đại học của Bộ Giáo dục và Đào tạo,Trường Đại học Thủy lợi thông báo tuyển sinh đại học hệ chính quy năm 2020', '2020-07-22 07:42:04', 23);
 
 -- --------------------------------------------------------
 
@@ -131,8 +136,7 @@ CREATE TABLE `taikhoan` (
 
 INSERT INTO `taikhoan` (`matk`, `tentk`, `email`, `matkhau`, `maquyen`, `trangthai`, `maxacnhan`) VALUES
 (17, 'duongtienthang123456789', 'duongtienthang123456789@gmail.com', '$2y$10$84QfanQx2mlrvJDMiY/j/Ox1LjmWtL40MFvobc5Xilue/j0.L.Tp2', 3, 1, 'b0b4cd89c8377b11e822af6ed0e2fc6c'),
-(18, 'thangdt72', 'thangdt72@wru.vn', '$2y$10$jGSP7M6xIyCi2r0S5rROX.MoeJx2KHqJBsvWiAbWBo5DA8eZLifUC', 2, 1, '117859436a7cdfb56e15f50fcecdf17c'),
-(21, 'huha', 'huhuhaha1507@gmail.com', '$2y$10$y5n5/etGnyCdlJnxVXejqO5mJjHqTwjJivYEW8vP8G3v0fpugVZBa', 3, 1, '9943c9b654ef741420abd85520bff661');
+(23, 'duydatzxc', 'duydatzxc@gmail.com', '$2y$10$lXP9OTSDQYwT0KUpndjHquIYpGF1SZvIsmeQu/LING1jwwUqJ/t7K', 2, 1, '96e8a5df974e004f4ea343a9fb20d366');
 
 -- --------------------------------------------------------
 
@@ -270,10 +274,11 @@ INSERT INTO `truong` (`matruong`, `tentruong`, `maquan`) VALUES
 --
 
 --
--- Chỉ mục cho bảng `post`
+-- Chỉ mục cho bảng `baiviet`
 --
-ALTER TABLE `post`
-  ADD PRIMARY KEY (`IDpost`);
+ALTER TABLE `baiviet`
+  ADD PRIMARY KEY (`mabv`),
+  ADD KEY `baiviet_ibfk_1` (`matk`);
 
 --
 -- Chỉ mục cho bảng `quan`
@@ -306,18 +311,24 @@ ALTER TABLE `truong`
 --
 
 --
--- AUTO_INCREMENT cho bảng `post`
+-- AUTO_INCREMENT cho bảng `baiviet`
 --
-ALTER TABLE `post`
-  MODIFY `IDpost` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+ALTER TABLE `baiviet`
+  MODIFY `mabv` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `matk` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `matk` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
+
+--
+-- Các ràng buộc cho bảng `baiviet`
+--
+ALTER TABLE `baiviet`
+  ADD CONSTRAINT `baiviet_ibfk_1` FOREIGN KEY (`matk`) REFERENCES `taikhoan` (`matk`);
 
 --
 -- Các ràng buộc cho bảng `quan`

@@ -1,10 +1,30 @@
 <?php
 include("head.php");
 $matk=$_GET['id'];
+$mabv=$_GET['post'];
 require('connect.php');
 $sql = "Select * from taikhoan where matk = '$matk'";
 $row = mysqli_fetch_assoc(mysqli_query($conn, $sql));
 $maquyen = $row['maquyen'];
+$sqlpost = "Select * from baiviet where mabv = '$mabv'";
+$rowpost = mysqli_fetch_assoc(mysqli_query($conn, $sqlpost));
+Switch($rowpost['chude']){
+    case 'Tuyển sinh đại học':
+        $chude='tsdaihoc';
+        break;
+    case 'Tuyển sinh thạc sĩ':
+        $chude='tsthacsi';
+        break;
+    case 'Tuyển sinh tiến sĩ':
+        $chude='tstiensi';
+        break;
+    case 'Tin tức đại học':
+        $chude='ttdaihoc';
+        break;
+    case 'Tin tức sau đại học':
+        $chude='ttsaudaihoc';
+        break;
+}
 ?>
 
 <body id="page-top">
@@ -15,14 +35,12 @@ $maquyen = $row['maquyen'];
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
                         <nav class="navbar navbar-light navbar-expand-md">
-                            <div class="container-fluid"><a class="navbar-brand" href="Post.php?id=<?php echo $matk?>">Posts</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-2"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                            <div class="container-fluid"><a class="navbar-brand" href="Post.php?id=<?php echo $matk?>">Bài viết</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-2"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                                 <div class="collapse navbar-collapse"
                                     id="navcol-2">
                                     <ul class="nav navbar-nav">
 
-                                        <li class="nav-item" role="presentation"><a class="nav-link" href="newpost.php?id=<?php echo $matk?>">New posts</a></li>
-                                        <li class="nav-item" role="presentation"><a class="nav-link" href="repair.php?id=<?php echo $matk?>">Repair</a></li>
-                                        <li class="nav-item" role="presentation"><a class="nav-link" href="deletepost.php?id=<?php echo $matk?>">Delete posts</a></li>
+                                        <li class="nav-item" role="presentation"><a class="nav-link" href="thembaiviet.php?id=<?php echo $matk?>">Thêm bài viết</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -40,12 +58,28 @@ $maquyen = $row['maquyen'];
                     </ul>
             </div>
             </nav>
-            <form class="form-register" method="POST" enctype="multipart/form-data" action="xulytaopost.php?id=<?php echo $matk?>">
+            <form class="form-register" id="fileupload"method="POST" enctype="multipart/form-data" action="xulysuabv.php?id=<?php echo $matk?>&post=<?php echo $mabv?>">
                 <div class="container-fluid">
-                    <h6 style="color: rgb(0,0,0);">Tiêu đề bài viết</h6><input class="form-control" id="tieude"name="tieude" type="text" required autofocus>
-                    <input type="file" name="image" id="image" class="form-control " style="margin-top:20px">
-                    <h6 style="color: rgb(0,0,0);">Nội dung</h6><input class="form-control" id="noidung" name="noidung" type="text" required>
-                <hr><button class="btn btn-primary" type="submit"id="newpost" name="newpost">Tạo bài viết</button></div>
+                    <h6 style="color: rgb(0,0,0);">Chủ đề bài viết</h6>
+                    <select name="chude" id="chude" class="form-control">
+                    <option value="<?php echo $chude?>" style="color: red;"><?php echo $rowpost['chude'] ?></option>
+                    <option value="tsdaihoc">Tuyển sinh đại học</option>
+                    <option value="tsthacsi">Tuyển sinh thạc sĩ</option>
+                    <option value="tstiensi">Tuyển sinh tiến sĩ</option>
+                    <option value="ttdaihoc">Tin tức đại học</option>
+                    <option value="ttsaudaihoc">Tin tức sau đại học</option>
+                    </select>
+                    <h6 style="color: rgb(0,0,0);">Tiêu đề bài viết</h6><input class="form-control" id="tieude"name="tieude" type="text" required value="<?php echo $rowpost['tieude'] ?>">
+                    <div class="row">
+                        <div class="col-md-2">
+                        <img src="<?php echo $rowpost['anh']?>" width="150px" height="150px" style="margin-top:20px">
+                        </div>
+                        <div class="col-md-3">
+                        <input type="file" name="image" id="image" class="form-control " style="margin-top:20px">
+                        </div>
+                    </div>
+                    <h6 style="color: rgb(0,0,0);">Nội dung</h6><input class="form-control" id="noidung" name="noidung" type="text" required value="<?php echo $rowpost['noidung'] ?>">
+                <hr><button class="btn btn-primary" type="submit"id="newpost" name="newpost">Sửa bài viết</button></div>
             </form>
         </div>
         <footer class="bg-white sticky-footer">

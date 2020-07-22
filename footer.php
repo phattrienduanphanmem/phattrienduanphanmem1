@@ -58,6 +58,6 @@ Email: <a href="#"> trungtamdh2@tlu.edu.vn</a></div>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js" ></script>
     <script src="js/javascrip.js" ></script>
-    </form>
+    
   </body>
 </html>

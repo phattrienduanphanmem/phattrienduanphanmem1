@@ -142,7 +142,7 @@ body {
   .btn-outline-dark2 {
     color: #000;
     border-color: #000;
-    background: #fff url("../images/bg/btn-dark.png") repeat-x 0 center;
+    background: #fff url("../images/btn-dark.png") repeat-x 0 center;
   }
   .btn-outline-dark2:hover, .btn-outline-dark2:focus {
     opacity: .85;
@@ -374,7 +374,7 @@ body {
     padding: 0 15px;
     outline: none;
     text-transform: uppercase;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Calibri', sans-serif;
     line-height: 47px;
   }
   
@@ -691,7 +691,7 @@ body {
   
   .qa-form {
     padding: 15px 12px 18px 12px;
-    background: url("../images/bg/bg-pattern.jpg") repeat;
+    background: url("../images/bg-pattern.jpg") repeat;
   }
   
   .qa .title {
@@ -861,7 +861,7 @@ body {
     display: block;
     position: absolute;
     top: 50%;
-    background: url("../images/bg/bg-gradient-line.png") no-repeat center center;
+    background: url("../images/bg-gradient-line.png") no-repeat center center;
     background-size: 100% 100%;
     z-index: -1;
   }
@@ -887,7 +887,7 @@ body {
   }
   
   .category {
-    background: url(../images/bg/bg-category.jpg) repeat;
+    background: url(../images/bg-category.jpg) repeat;
   }
   .category .heading2 {
     margin-bottom: 0;
@@ -984,3 +984,24 @@ body {
     color: #fff;
     padding: 10px 10px 7px 10px;
 }
+
+@media all and (max-width:767px){.aui [class*="span"],.aui .uneditable-input[class*="span"],.aui .row-fluid [class*="span"]{margin:0 20px}}
+@media all and (max-width:1200px){.aui .row-fluid{width:auto!important}.aui .row-fluid [class*="span"]:first-child{margin-left:0!important}}
+.tlu-menu{padding:0 11.13%}
+
+.tlu-menu .column-2 ul li a{display:block;text-decoration:none;padding:7px 7px;border-bottom:1px solid #ccc;}
+.tlu-menu .column-2 ul li a:hover{background-color:#ececec}
+.tlu-menu .column-2 ul li{position:relative;padding-left:15px;display:block;background:url("images/icon-muiten.png") no-repeat 0 17px}
+.tlu-menu .column-2 ul li ul li{background:0}
+.tlu-menu .column-2 ul li ul{position:relative;display:none;margin:0;padding:0}.Layout12vs363 #column-2 ul li:HOVER ul,
+.tlu-menu .column-2 ul li:HOVER ul{position:relative;display:block}
+.tlu-menu .row2{margin-bottom:50px}
+.tlu-menu{padding:0;margin:0;position:relative}
+.tlu-menu .column-2{width:100%!important}
+@media print{.aui{@page{margin:.5cm}}.aui *{text-shadow:none!important;color:#000!important;background:transparent!important;box-shadow:none!important}}
+.aui .row-fluid{width:auto!important}.aui h4{font-size:19.5px}
+.aui a,.aui a:visited{text-decoration:underline}
+.aui p,.aui h2,.aui h3{orphans:3;widows:3}.aui h2,.aui h3{page-break-after:avoid}
+.aui body{margin:0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;line-height:20px;color:#333;background-color:white}
+.aui a{color:#0af;text-decoration:none}
+.aui a:hover,.aui a:focus{color:#0077b3;text-decoration:underline}

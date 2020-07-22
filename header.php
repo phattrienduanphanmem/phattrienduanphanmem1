@@ -14,7 +14,7 @@
     
   </head>
   <body>
-  <form method="post" action="/" id="Form" enctype="multipart/form-data">
+    
 <!-- BEGIN: HEADER -->
 <header class="header-page">
     <div class="container">
@@ -61,7 +61,7 @@
                 <a href="tuyensinhdaihoc.php">Tuyển sinh đại học</a>
             </li>
             <li>
-                <a href="tintuyensinhthacsi.php">Tuyển sinh thạc sĩ</a>
+                <a href="tuyensinhthacsi.php">Tuyển sinh thạc sĩ</a>
             </li>
             <li>
                 <a href="tuyensinhtiensi.php">Tuyển sinh tiến sĩ</a>
@@ -75,6 +75,9 @@
                 </ul>
             </li>
             <li>
+                <a href="hoidap.php">Hỏi đáp</a>
+            </li>
+            <li>
                 <a href="xettuyentructuyen.php">Đăng ký xét tuyển đại học</a>
             </li>
         </ul>
@@ -82,4 +85,3 @@
     </div>
 </div>
 </section>
-<div style="margin-top:50px"></div>

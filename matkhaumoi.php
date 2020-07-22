@@ -18,7 +18,7 @@ $row = mysqli_fetch_assoc(mysqli_query($conn, $sql));
         <div class="form-item">
             <input class="form-control" id="nhaplai"name="nhaplai" type="password" placeholder="Nhập lại mật khẩu" required autofocus>
         </div>
-        <button id="kichhoat" type="submit" class="btn_login pull-right" name="kichhoat">Đổi mật khẩu</button>
+        <button id="kichhoat" type="submit" class="btn_login pull-right" name="kichhoat" style="width: 113px;">Đổi mật khẩu</button>
         </form>
     </div>
     </div>

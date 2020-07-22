@@ -5,7 +5,8 @@ require('connect.php');
 $sql = "Select * from taikhoan where matk = '$matk'";
 $row = mysqli_fetch_assoc(mysqli_query($conn, $sql));
 $maquyen = $row['maquyen'];
-$sqlpost = "Select * from post";
+if($maquyen=="3"){$sqlpost = "Select * from baiviet";}
+else if($maquyen=="2"){$sqlpost = "Select * from baiviet where matk = '$matk'";}
 $resultpost = mysqli_query($conn, $sqlpost);
 ?>
 
@@ -17,14 +18,12 @@ $resultpost = mysqli_query($conn, $sqlpost);
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
                         <nav class="navbar navbar-light navbar-expand-md">
-                            <div class="container-fluid"><a class="navbar-brand" href="Post.php?id=<?php echo $matk?>">Posts</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-2"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                            <div class="container-fluid"><a class="navbar-brand" href="Post.php?id=<?php echo $matk?>">Bài viết</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-2"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                                 <div class="collapse navbar-collapse"
                                     id="navcol-2">
                                     <ul class="nav navbar-nav">
 
-                                        <li class="nav-item" role="presentation"><a class="nav-link" href="newpost.php?id=<?php echo $matk?>">New posts</a></li>
-                                        <li class="nav-item" role="presentation"><a class="nav-link" href="repair.php?id=<?php echo $matk?>">Repair</a></li>
-                                        <li class="nav-item" role="presentation"><a class="nav-link" href="deletepost.php?id=<?php echo $matk?>">Delete posts</a></li>
+                                        <li class="nav-item" role="presentation"><a class="nav-link" href="thembaiviet.php?id=<?php echo $matk?>">Thêm bài viết</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -46,22 +45,26 @@ $resultpost = mysqli_query($conn, $sqlpost);
                 <table id="example" class="table table-striped table-bordered" width="100%">
                 <thead>
                     <tr>
-                        <th width="87px">ID Post</th>
-                        <th>Name Post</th>
-                        <th>Image</th>
-                        <th>Text</th>
-                        <th width="193px">Start Date</th>
+                        <th width="40px">Sửa</th>
+                        <th width="40px">Xoá</th>
+                        <th width="80px">Mã bài viết</th>
+                        <th width="200px">Tiêu đề</th>
+                        <th width="150px">Ảnh</th>
+                        <th width="400px">Nội dung</th>
+                        <th width="193px">Ngày tạo</th>
                     </tr>
                 </thead>
                 <tbody>
               <?php
                 if (mysqli_num_rows($resultpost) > 0) {
                   while ($rowpost = mysqli_fetch_assoc($resultpost)) {
-                    echo '<tr><td>'.$rowpost['IDpost'].'</td>';
-                    echo '<td>'.$rowpost['namepost'].'</td>';
-                    echo '<td>'.$rowpost['image'].'</td>';
-                    echo '<td>'.$rowpost['text'].'</td>';
-                    echo '<td>'.$rowpost['date'].'</td></tr>';
+                    echo '<tr><td><a href="suabv.php?id='.$matk.'&post='.$rowpost['mabv'].'"><img src="images/edit.gif" border="0"></a></td>';
+                    echo '<td><a href="xulyxoabv.php?id='.$matk.'&post='.$rowpost['mabv'].'"><img src="images/deleted.jpg" border="0"></a></td>';
+                    echo '<td>'.$rowpost['mabv'].'</td>';
+                    echo '<td>'.$rowpost['tieude'].'</td>';
+                    echo '<td><img src="'.$rowpost['anh'].'" width="150px" height="150px"></td>';
+                    echo '<td>'.$rowpost['noidung'].'</td>';
+                    echo '<td>'.$rowpost['ngaytao'].'</td></tr>';
                   }
                 }
               ?>

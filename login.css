@@ -130,3 +130,10 @@ button:hover {
 button:focus {
     outline: none;
 }
+button > a {
+    color: #ffffff;
+}
+button > a:hover {
+    color: #000000;
+    cursor: pointer;
+}

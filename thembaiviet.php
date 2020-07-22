@@ -9,19 +9,18 @@ $maquyen = $row['maquyen'];
 
 <body id="page-top">
     <div id="wrapper">
-    <?php include("menu.php"); ?>
+    <?php include("menu.php");?>
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
                         <nav class="navbar navbar-light navbar-expand-md">
-                            <div class="container-fluid"><a class="navbar-brand" href="User.php?id=<?php echo $matk?>">User</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-2"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                            <div class="container-fluid"><a class="navbar-brand" href="Post.php?id=<?php echo $matk?>">Bài viết</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-2"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                                 <div class="collapse navbar-collapse"
                                     id="navcol-2">
                                     <ul class="nav navbar-nav">
-                                        <li class="nav-item" role="presentation"><a class="nav-link active" href="Register.php?id=<?php echo $matk?>">Thêm admin</a></li>
-                                        <li class="nav-item" role="presentation"><a class="nav-link" href="capquyen.php?id=<?php echo $matk?>">Câp quyền</a></li>
-                                        <li class="nav-item" role="presentation"><a class="nav-link" href="xoataikhoan.php?id=<?php echo $matk?>">Xóa</a></li>
+
+                                        <li class="nav-item" role="presentation"><a class="nav-link" href="thembaiviet.php?id=<?php echo $matk?>">Thêm bài viết</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -39,15 +38,22 @@ $maquyen = $row['maquyen'];
                     </ul>
             </div>
             </nav>
-            <form class="form-register" method="POST" action="xulytaotk.php?id=<?php echo $matk?>">
+            <form class="form-register" id="fileupload"method="POST" enctype="multipart/form-data" action="xulythembv.php?id=<?php echo $matk?>">
                 <div class="container-fluid">
-                    <h6 style="color: rgb(0,0,0);">Tài khoản</h6><input class="form-control" id="tentk"name="tentk" type="text" required autofocus>
-                    <h6 style="color: rgb(0,0,0);">Email</h6><input class="form-control" id="email"name="email" type="email" required autofocus>
-                    <h6 style="color: rgb(0,0,0);">Password</h6><input class="form-control" id="matkhau"name="matkhau" type="password" required>
-                <hr><button class="btn btn-primary" type="submit"id="taotk" name="taotk" style="width: 123px;">Tạo tài khoản</button></div>
+                    <h6 style="color: rgb(0,0,0);">Chủ đề bài viết</h6>
+                    <select name="chude" id="chude" class="form-control">
+                    <option value="tsdaihoc">Tuyển sinh đại học</option>
+                    <option value="tsthacsi">Tuyển sinh thạc sĩ</option>
+                    <option value="tstiensi">Tuyển sinh tiến sĩ</option>
+                    <option value="ttdaihoc">Tin tức đại học</option>
+                    <option value="ttsaudaihoc">Tin tức sau đại học</option>
+                    </select>
+                    <h6 style="color: rgb(0,0,0);">Tiêu đề bài viết</h6><input class="form-control" id="tieude"name="tieude" type="text" required autofocus>
+                    <input type="file" name="image" id="image" class="form-control " style="margin-top:20px" required autofocus>
+                    <h6 style="color: rgb(0,0,0);">Nội dung</h6><input class="form-control" id="noidung" name="noidung" type="text" required autofocus>
+                <hr><button class="btn btn-primary" type="submit"id="newpost" name="newpost">Tạo bài viết</button></div>
             </form>
-
-            </div>
+        </div>
         <footer class="bg-white sticky-footer">
             <div class="container my-auto">
                 <div class="text-center my-auto copyright"><span>Copyright © Brand 2019</span></div>

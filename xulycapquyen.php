@@ -3,12 +3,21 @@
     $quyen =$_POST['quyen'];
     $matk=$_GET['id'];
     require('connect.php');
-    if ($quyen=="admin") $maquyen='3';
-    else 
-    {if ($quyen=="manager") $maquyen='2';
-    else $maquyen='1';
+    Switch($quyen){
+        case 'admin':
+            $maquyen='3';
+            break;
+        case 'manager':
+            $maquyen='2';
+            break;
+        case 'viewer':
+            $maquyen='1';
+            break;
+        default:
+            $maquyen='';
+            break;
     }
-    if(isset($taikhoan)&isset($quyen)){
+    if(isset($maquyen)|| $taikhoan==''){
         $sql = "UPDATE taikhoan set maquyen ='$maquyen' where email='$taikhoan';";
         mysqli_set_charset($conn,'UTF8');
         if(mysqli_query($conn,$sql)){

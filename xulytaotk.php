@@ -15,15 +15,23 @@
         $sql = "INSERT INTO taikhoan(tentk,email,matkhau,maquyen,trangthai,maxacnhan) 
         values ('$tentk','$email','$pass','1','0','$txt');";
         mysqli_set_charset($conn,'UTF8');
-        if(mysqli_query($conn,$sql)&mail($email,$subject,$txt,$headers)){
-            echo '<script language="javascript">';
-            echo 'alert("Tạo tài khoản thành công");';
-            echo 'location.href="Register.php?id='.$matk.'";';
-            echo '</script>';
+        if(mail($email,$subject,$txt,$headers)){
+            if(mysqli_query($conn,$sql)){
+                echo '<script language="javascript">';
+                echo 'alert("Tạo tài khoản thành công");';
+                echo 'location.href="Register.php?id='.$matk.'";';
+                echo '</script>';
+            }
+            else{
+                echo '<script language="javascript">';
+                echo 'alert("Tạo tài khoản thất bại");';
+                echo 'location.href="Register.php?id='.$matk.'";';
+                echo '</script>';
+            }
         }
         else{
             echo '<script language="javascript">';
-            echo 'alert("Tạo tài khoản thất bại");';
+            echo 'alert("Gửi email kích hoạt gặp vấn đề, không thể tạo tài khoản");';
             echo 'location.href="Register.php?id='.$matk.'";';
             echo '</script>';
         };

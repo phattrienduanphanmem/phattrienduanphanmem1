@@ -12,7 +12,7 @@ require('connect.php');
         <div class="form-item">
             <input class="form-control" id="email"name="email" type="text" placeholder="Nhập email của bạn" required autofocus>
         </div>
-        <button id="kichhoat" type="submit" class="btn_login pull-right" name="kichhoat">Xác nhận tài khoản</button>
+        <button id="kichhoat" type="submit" class="btn_login pull-right" name="kichhoat"style="height: 50px;">Xác nhận tài khoản</button>
         </form>
     </div>
     </div>

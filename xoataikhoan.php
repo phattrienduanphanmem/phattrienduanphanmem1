@@ -59,7 +59,7 @@ $result = mysqli_query($conn, $sql);
                 </select>
             </div>
             <div class="col-md-3">
-                <button class="btn btn-primary" type="submit"id="xoataikhoan" name="xoataikhoan">Xóa tài khoản</button>
+                <button class="btn btn-primary" type="submit"id="xoataikhoan" name="xoataikhoan"style="width: 124px;">Xóa tài khoản</button>
             </div>
             </div>
             </form>
