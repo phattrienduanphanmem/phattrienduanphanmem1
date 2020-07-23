@@ -1005,3 +1005,10 @@ body {
 .aui body{margin:0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;line-height:20px;color:#333;background-color:white}
 .aui a{color:#0af;text-decoration:none}
 .aui a:hover,.aui a:focus{color:#0077b3;text-decoration:underline}
+.related-list li {
+  list-style: none;
+  padding: 25px 0;
+  border-bottom: 1px dotted #001373;
+  font-size: 18px;
+  line-height: 24px;
+}

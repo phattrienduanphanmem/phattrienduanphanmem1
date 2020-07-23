@@ -26,4 +26,5 @@ else{
     echo 'location.href="login.php";';
     echo '</script>';
 }
+mysqli_close($conn);
 ?>

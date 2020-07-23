@@ -102,5 +102,6 @@
         echo 'location.href="suabv.php?id='.$matk.'&post='.$mabv.'";';
         echo '</script>';
     }
+    mysqli_close($conn);
 }
 ?>

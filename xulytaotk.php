@@ -13,7 +13,7 @@
     $headers = "From: duongtienthang123456789@gmail.com";
     if(empty($row['Email'])){
         $sql = "INSERT INTO taikhoan(tentk,email,matkhau,maquyen,trangthai,maxacnhan) 
-        values ('$tentk','$email','$pass','1','0','$txt');";
+        values ('$tentk','$email','$pass','2','0','$txt');";
         mysqli_set_charset($conn,'UTF8');
         if(mail($email,$subject,$txt,$headers)){
             if(mysqli_query($conn,$sql)){

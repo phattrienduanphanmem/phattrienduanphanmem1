@@ -10,9 +10,7 @@
         case 'manager':
             $maquyen='2';
             break;
-        case 'viewer':
-            $maquyen='1';
-            break;
+            
         default:
             $maquyen='';
             break;

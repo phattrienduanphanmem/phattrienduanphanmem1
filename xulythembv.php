@@ -66,4 +66,5 @@
         echo 'location.href="thembaiviet.php?id='.$matk.'";';
         echo '</script>';
     }
+    mysqli_close($conn);
 ?>

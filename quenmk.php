@@ -6,7 +6,7 @@ require('connect.php');
 <div id="formWrapper">
     <div id="form">
         <div class= "text-center">
-            <h2 data-v-f83106a2="" style="color: rgb(39, 23, 86);">Form lấy lại mật khẩukhẩu</h2>
+            <h2 data-v-f83106a2="" style="color: rgb(39, 23, 86);">Form lấy lại mật khẩu</h2>
         </div>
         <form action="guimaxacnhan.php"method="POST">
         <div class="form-item">

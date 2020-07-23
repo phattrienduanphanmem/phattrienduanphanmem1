@@ -56,22 +56,57 @@
     <nav class="mainmenu" id="mainmenu">
     <ul class="menu clearfix">
             <li><a href="index.php"><i class="fa fa-home" aria-hidden="true" style="font-size:130%"></i></a></li>
-            <li><a href="http://www.tlu.edu.vn">TLU</a></li>
+            <li><a href="#">Tin tức và thông báo</a></li>
             <li>
-                <a href="tuyensinhdaihoc.php">Tuyển sinh đại học</a>
-            </li>
-            <li>
-                <a href="tuyensinhthacsi.php">Tuyển sinh thạc sĩ</a>
-            </li>
-            <li>
-                <a href="tuyensinhtiensi.php">Tuyển sinh tiến sĩ</a>
-            </li>
-            <li>
-                <a>Ngành đào tạo</a>
+                <a>Tuyển sinh</a>
                 <ul class="sub-menu">
-                    <li><a  href="nganhdaotaodaihoc.php">Ngành đào tạo ĐẠI HỌC</a></li>
-                    <li><a  href="nganhdaotaothacsi.php">Ngành đào tạo THẠC SĨ</a></li>
-                    <li><a  href="nganhdaotaotiensi.php">Ngành Đào tạo TIẾN SĨ</a></li>
+                    <li><a  href="tsdaihoc.php">Đại học chính quy</a></li>
+                    <li><a  href="tsthacsi.php">Thạc sĩ</a></li>
+                    <li><a  href="tstiensi.php">Tiến sĩ</a></li>
+                    <li><a  href="tsvanbang2.php">Văn bằng 2</a></li>
+                    <li><a  href="tsvuahocvualam.php">Vừa học vừa làm</a></li>
+                    <li><a  href="tslienthong.php">Tuyển sinh liên thông</a></li>
+                </ul>
+            </li>
+            <li>
+                <a>Chương trình đạo tạo</a>
+                <ul class="sub-menu">
+                    <li><a  href="ctdtdaihoc.php">Đại học chính quy</a></li>
+                    <li><a  href="ctdtthacsi.php">Thạc sĩ</a></li>
+                    <li><a  href="ctdttiensi.php">Tiến sĩ</a></li>
+                    <li><a  href="ctdtvuahocvualam.php">Vừa học vừa làm</a></li>
+                </ul>
+            </li>
+            <li>
+                <a>Các ngành đào tạo</a>
+                <ul class="sub-menu">
+                  <li><a href="cnktxd.php">Công nghệ kỹ thuật xây dựng</a></li>
+                  <li><a href="cnsh.php">Công nghệ sinh học</a></li>
+                  <li><a href="kt.php">Kinh tế</a></li>
+                  <li><a href="ktctn.php">Kỹ thuật cấp thoát nước</a></li>
+                  <li><a href="ktcsht.php">Kỹ thuật cơ sở hạ tầng</a></li>
+                  <li><a href="ktcdt.php">Kỹ thuật cơ điện tử</a></li>
+                  <li><a href="ktdkvtdh.php">Kỹ thuật điều khiển và tự động hóa</a></li>
+                  <li><a href="ktd.php">Kỹ thuật điện</a></li>
+                  <li><a href="kthh.php">Kỹ thuật hóa học</a></li>
+                  <li><a href="ktmt.php">Kỹ thuật môi trường</a></li>
+                  <li><a href="ktot.php">Kỹ thuật ô tô</a></li>
+                  <li><a href="ktxdctt.php">Kỹ thuật xây dựng công trình thủy</a></li>
+                  <li><a href="ktxd.php">Kỹ thuật xây dựng</a></li>
+                  <li><a href="ktxdctgt.php">Kỹ thuật xây dựng công trình giao thông</a></li>
+                  <li><a href="kttnn.php">Kỹ thuật tài nguyên nước</a></li>
+                  <li><a href="nncntt.php">Nhóm ngành Công nghệ thông tin</a></li>
+                  <li><a href="nnktck.php">Nhóm ngành Kỹ thuật Cơ khí</a></li>
+                  <li><a href="qlxd.php">Quản lý xây dựng</a></li>
+                  <li><a href="tvh.php">Thủy văn học</a></li>
+                </ul>
+            </li>
+            <li>
+                <a>Sinh viên</a>
+                <ul class="sub-menu">
+                  <li><a href="#">Học phí</a></li>
+                  <li><a href="#">Điểm chuẩn</a></li>
+                  <li><a href="#">Tra cứu thông tin</a></li>
                 </ul>
             </li>
             <li>
