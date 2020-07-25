@@ -585,7 +585,7 @@ $resulttinh3 = mysqli_query($conn, $sqltinh);
                             data:{id:maquan},
                             dataType:"html",
                             success:function(data){
-                            $("#quan11").html(data);
+                            $("#quan12").html(data);
                         }
                         });
                     });
@@ -606,7 +606,7 @@ $resulttinh3 = mysqli_query($conn, $sqltinh);
             </div>
             <div class="col-sm-4 col-12">
                 <label>Trường THPT :</label>
-                <select id="truong11" name="truong11" class="form-control " style="width: 100%;"  tabindex="-1" aria-hidden="true">
+                <select id="truong12" name="truong12" class="form-control " style="width: 100%;"  tabindex="-1" aria-hidden="true">
                 <option value="?" selected="selected"></option>
             </select>
             </div>

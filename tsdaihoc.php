@@ -1,12 +1,16 @@
 <?php
 include("header.php");
+$manganh=$_GET['id'];
 ?>
 <main class="main-content">
     <div class="container">
-        <div style="margin-top:70px"></div>
+        <div style="margin-top:20px"></div>
         <div class="primary-content">
             <div class="row">
-                <?php include("menunganh.php");?>
+                <?php include("menutuyensinh.php");?>
+                
+
+                
             </div>
         </div>
     </div>

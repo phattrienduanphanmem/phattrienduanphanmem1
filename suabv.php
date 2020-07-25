@@ -60,11 +60,8 @@ Switch($rowpost['chude']){
                     <h6 style="color: rgb(0,0,0);">Chủ đề bài viết</h6>
                     <select name="chude" id="chude" class="form-control">
                     <option value="<?php echo $chude?>" style="color: red;"><?php echo $rowpost['chude'] ?></option>
-                    <option value="tsdaihoc">Tuyển sinh đại học</option>
-                    <option value="tsthacsi">Tuyển sinh thạc sĩ</option>
-                    <option value="tstiensi">Tuyển sinh tiến sĩ</option>
-                    <option value="ttdaihoc">Tin tức đại học</option>
-                    <option value="ttsaudaihoc">Tin tức sau đại học</option>
+                    <option value="tt">Tin tức</option>
+                    <option value="tb">Thông báo</option>
                     </select>
                     <h6 style="color: rgb(0,0,0);">Tiêu đề bài viết</h6><input class="form-control" id="tieude"name="tieude" type="text" required value="<?php echo $rowpost['tieude'] ?>">
                     <div class="row">

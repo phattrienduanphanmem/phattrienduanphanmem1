@@ -8,21 +8,13 @@
     $sqlpost = "Select * from baiviet where mabv = '$mabv'";
     $rowpost = mysqli_fetch_assoc(mysqli_query($conn, $sqlpost));
     Switch($namechude){
-        case 'tsdaihoc':
-            $chude='Tuyển sinh đại học';
+        case 'tt':
+            $chude='Tin tức';
             break;
-        case 'tsthacsi':
-            $chude='Tuyển sinh thạc sĩ';
+        case 'tb':
+            $chude='Thông báo';
             break;
-        case 'tstiensi':
-            $chude='Tuyển sinh tiến sĩ';
-            break;
-        case 'ttdaihoc':
-            $chude='Tin tức đại học';
-            break;
-        case 'ttsaudaihoc':
-            $chude='Tin tức sau đại học';
-            break;
+            
     }
     if(empty($_FILES['image']['name'])){
         if($rowpost['chude']==$chude&$rowpost['tieude']==$tieude&$rowpost['noidung']==$noidung){

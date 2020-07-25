@@ -5,20 +5,11 @@
     $matk=$_GET['id'];
     require('connect.php');
     Switch($namechude){
-        case 'tsdaihoc':
-            $chude='Tuyển sinh đại học';
+        case 'tt':
+            $chude='Tin tức';
             break;
-        case 'tsthacsi':
-            $chude='Tuyển sinh thạc sĩ';
-            break;
-        case 'tstiensi':
-            $chude='Tuyển sinh tiến sĩ';
-            break;
-        case 'ttdaihoc':
-            $chude='Tin tức đại học';
-            break;
-        case 'ttsaudaihoc':
-            $chude='Tin tức sau đại học';
+        case 'tb':
+            $chude='Thông báo';
             break;
     }
     $error =array();

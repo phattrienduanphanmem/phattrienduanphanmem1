@@ -69,7 +69,7 @@
                 </ul>
             </li>
             <li>
-                <a>Chương trình đạo tạo</a>
+                <a>Đạo tạo</a>
                 <ul class="sub-menu">
                     <li><a  href="ctdtdaihoc.php">Đại học chính quy</a></li>
                     <li><a  href="ctdtthacsi.php">Thạc sĩ</a></li>
@@ -80,25 +80,14 @@
             <li>
                 <a>Các ngành đào tạo</a>
                 <ul class="sub-menu">
-                  <li><a href="cnktxd.php">Công nghệ kỹ thuật xây dựng</a></li>
-                  <li><a href="cnsh.php">Công nghệ sinh học</a></li>
-                  <li><a href="kt.php">Kinh tế</a></li>
-                  <li><a href="ktctn.php">Kỹ thuật cấp thoát nước</a></li>
-                  <li><a href="ktcsht.php">Kỹ thuật cơ sở hạ tầng</a></li>
-                  <li><a href="ktcdt.php">Kỹ thuật cơ điện tử</a></li>
-                  <li><a href="ktdkvtdh.php">Kỹ thuật điều khiển và tự động hóa</a></li>
-                  <li><a href="ktd.php">Kỹ thuật điện</a></li>
-                  <li><a href="kthh.php">Kỹ thuật hóa học</a></li>
-                  <li><a href="ktmt.php">Kỹ thuật môi trường</a></li>
-                  <li><a href="ktot.php">Kỹ thuật ô tô</a></li>
-                  <li><a href="ktxdctt.php">Kỹ thuật xây dựng công trình thủy</a></li>
-                  <li><a href="ktxd.php">Kỹ thuật xây dựng</a></li>
-                  <li><a href="ktxdctgt.php">Kỹ thuật xây dựng công trình giao thông</a></li>
-                  <li><a href="kttnn.php">Kỹ thuật tài nguyên nước</a></li>
-                  <li><a href="nncntt.php">Nhóm ngành Công nghệ thông tin</a></li>
-                  <li><a href="nnktck.php">Nhóm ngành Kỹ thuật Cơ khí</a></li>
-                  <li><a href="qlxd.php">Quản lý xây dựng</a></li>
-                  <li><a href="tvh.php">Thủy văn học</a></li>
+                  <?php
+                  include("connect.php");
+                  $result=mysqli_query($conn, "select * from nganh");
+                  while($row = mysqli_fetch_array($result)){
+                      echo '<li><a href="nganhdaotao.php?id='.$row['manganh'].'">' .$row['tennganh']. '</a></li>';
+                  }
+                  mysqli_close($conn);
+                  ?>
                 </ul>
             </li>
             <li>
