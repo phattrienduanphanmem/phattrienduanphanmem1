@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th7 22, 2020 lúc 01:46 SA
+-- Thời gian đã tạo: Th7 28, 2020 lúc 08:41 SA
 -- Phiên bản máy phục vụ: 10.4.10-MariaDB
 -- Phiên bản PHP: 5.6.30
 
@@ -41,12 +41,96 @@ CREATE TABLE `baiviet` (
 --
 
 INSERT INTO `baiviet` (`mabv`, `chude`, `tieude`, `anh`, `noidung`, `ngaytao`, `matk`) VALUES
-(4, 'Tuyển sinh tiến sĩ', ' Hướng dẫn thí sinh kiểm tra hồ sơ đăng ký xét tuyển online', 'images/images_post/0e78cc85ad6080a9d1bbd6f11db5193c5b02809d5d29c_4080eda1a706ce63f272259076427490.jpg', 'Để kiểm tra kết quả đăng ký xét tuyển vào trường theo hình thức xét tuyển học bạ online, Nhà trường sẽ xem kỹ các bước sau:', '2020-07-20 12:06:15', 17),
-(5, 'Tuyển sinh đại học', 'Trường Đại học Thủy lợi thông báo Tuyển sinh đại học hệ chính quy năm 2020', 'images/images_post/18-hinh-nen-powerpoint-mau-tim-giup-bai-thuyet-trinh-them-thu-hut-1489724046-9.gif', 'Căn cứ Công văn số 1778/BGDĐT-GDĐH ngày 22/5/2020 về hướng dẫn công tác tuyển sinh trình độ đại học của Bộ Giáo dục và Đào tạo,Trường Đại học Thủy lợi thông báo tuyển sinh đại học hệ chính quy năm 2020', '2020-07-20 02:22:11', 17),
-(8, 'Tuyển sinh thạc sĩ', 'Trường Đại học Thủy lợi thông báo Tuyển sinh đại học hệ chính quy năm 2020', 'images/images_post/20-hinh-nen-don-gian-dam-chat-ca-tinh-danh-cho-bai-thuyet-trinh-1494511523-7.jpg', 'sdgqasd', '2020-07-20 12:15:07', 17),
-(10, 'Tin tức đại học', ' Hướng dẫn thí sinh kiểm tra hồ sơ đăng ký xét tuyển online', 'images/images_post/40-hinh-nen-powerpoint-ve-moi-truong-cuc-chat-cho-bai-thuyet-trinh-10.png', 'Căn cứ Công văn số 1778/BGDĐT-GDĐH ngày 22/5/2020 về hướng dẫn công tác tuyển sinh trình độ đại học của Bộ Giáo dục và Đào tạo,Trường Đại học Thủy lợi thông báo tuyển sinh đại học hệ chính quy năm 2020', '2020-07-20 12:06:55', 17),
-(11, 'Tin tức sau đại học', 'werfwef', 'images/images_post/e95ac6254fea4fcb59bc4cd21190796c.png', 'Căn cứ Công văn số 1778/BGDĐT-GDĐH ngày 22/5/2020 về hướng dẫn công tác tuyển sinh trình độ đại học của Bộ Giáo dục và Đào tạo,Trường Đại học Thủy lợi thông báo tuyển sinh đại học hệ chính quy năm 2020', '2020-07-20 12:07:14', 17),
-(12, 'Tuyển sinh đại học', 'Trường Đại học Thủy lợi thông báo Tuyển sinh đại học hệ chính quy năm 2020', 'images/images_post/d11ae123005e6bd62e396af49924d3b2.png', 'Căn cứ Công văn số 1778/BGDĐT-GDĐH ngày 22/5/2020 về hướng dẫn công tác tuyển sinh trình độ đại học của Bộ Giáo dục và Đào tạo,Trường Đại học Thủy lợi thông báo tuyển sinh đại học hệ chính quy năm 2020', '2020-07-22 07:42:04', 23);
+(16, 'Tin tức', ' Trường Đại học Thủy lợi thông báo Tuyển sinh đại học hệ chính quy năm 2020', 'images/images_post/0e78cc85ad6080a9d1bbd6f11db5193c5b02809d5d29c_4080eda1a706ce63f272259076427490.jpg', 'Căn cứ Công văn số 1778/BGDĐT-GDĐH ngày 22/5/2020 về hướng dẫn công tác tuyển sinh trình độ đại học của Bộ Giáo dục và Đào tạo,Trường Đại học Thủy lợi thông báo tuyển sinh đại học hệ chính quy năm 2020', '2020-07-28 04:38:31', 17),
+(17, 'Thông báo', 'Hướng dẫn thí sinh kiểm tra hồ sơ đăng ký xét tuyển online', 'images/images_post/18-hinh-nen-powerpoint-mau-tim-giup-bai-thuyet-trinh-them-thu-hut-1489724046-9.gif', 'Để kiểm tra kết quả đăng ký xét tuyển vào trường theo hình thức xét tuyển học bạ online, Nhà trường sẽ xem kỹ các bước sau:', '2020-07-28 04:39:20', 17),
+(18, 'Tin tức', 'Đề án tuyển sinh đại học Thủy lợi năm 2020', 'images/images_post/20-hinh-nen-don-gian-dam-chat-ca-tinh-danh-cho-bai-thuyet-trinh-1494511523-7.jpg', 'Trường Đại học Thủy lợi công bố Đề án tuyển sinh đại học năm 2020', '2020-07-28 04:39:46', 17),
+(19, 'Thông báo', 'Quyết định điểm chuẩn năm 2019 tại cơ sở mở rộng Phố Hiến của Trường ĐH Thủy lợi', 'images/images_post/40-hinh-nen-powerpoint-ve-moi-truong-cuc-chat-cho-bai-thuyet-trinh-5.jpg', 'Quyết định điểm chuẩn năm 2019 tại cơ sở mở rộng Phố Hiến của Trường ĐH Thủy lợi', '2020-07-28 04:40:39', 17),
+(20, 'Tin tức', 'Kế hoạch và quy trình xác nhận nhập học đối với thí sinh trúng tuyển đợt 1 Đại học chính quy năm 201', 'images/images_post/40-hinh-nen-powerpoint-ve-moi-truong-cuc-chat-cho-bai-thuyet-trinh-10.png', 'Kế hoạch và quy trình xác nhận nhập học đối với thí sinh trúng tuyển đợt 1 Đại học chính quy năm 2019', '2020-07-28 04:41:12', 17);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `diemchuan`
+--
+
+CREATE TABLE `diemchuan` (
+  `madiem` int(11) NOT NULL,
+  `diem` double NOT NULL,
+  `dieukien` varchar(40) DEFAULT NULL,
+  `chitieu` smallint(6) NOT NULL,
+  `nam` smallint(6) NOT NULL,
+  `manganh` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `diemchuan`
+--
+
+INSERT INTO `diemchuan` (`madiem`, `diem`, `dieukien`, `chitieu`, `nam`, `manganh`) VALUES
+(1, 7, 'Điểm toán >= 6.5', 1600, 2020, 'TLA105'),
+(2, 6.5, '', 1700, 2020, 'TLA101'),
+(3, 6.25, '', 1500, 2020, 'TLA102'),
+(4, 20, '', 1600, 2019, 'TLA101'),
+(5, 20, '', 1600, 2019, 'TLA102'),
+(6, 20, '', 1600, 2019, 'TLA103'),
+(7, 20, '', 1600, 2019, 'TLA104'),
+(10, 20, '', 1600, 2019, 'TLA105'),
+(11, 20, '', 1600, 2019, 'TLA106'),
+(12, 20, '', 1600, 2019, 'TLA107'),
+(13, 20, '', 1600, 2019, 'TLA109'),
+(14, 20, '', 1600, 2019, 'TLA110'),
+(15, 20, '', 1600, 2019, 'TLA111'),
+(16, 20, '', 1600, 2019, 'TLA112'),
+(17, 20, '', 1600, 2019, 'TLA113'),
+(18, 20, '', 1600, 2019, 'TLA114'),
+(19, 20, '', 1600, 2019, 'TLA118'),
+(20, 20, '', 1600, 2019, 'TLA119'),
+(21, 20, '', 1600, 2019, 'TLA120'),
+(22, 20, '', 1600, 2019, 'TLA121'),
+(23, 20, '', 1600, 2019, 'TLA123'),
+(24, 20, '', 1600, 2019, 'TLA401'),
+(25, 20, '', 1600, 2019, 'TLA402'),
+(27, 20, '', 1600, 2019, 'TLA403'),
+(28, 20, '', 1600, 2018, 'TLA102');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `nganh`
+--
+
+CREATE TABLE `nganh` (
+  `manganh` varchar(10) NOT NULL,
+  `tennganh` varchar(100) NOT NULL,
+  `matohop` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `nganh`
+--
+
+INSERT INTO `nganh` (`manganh`, `tennganh`, `matohop`) VALUES
+('TLA101', 'Kỹ thuật xây dựng công trình thủy', 'A00, A01, D01, D07'),
+('TLA102', 'Kỹ thuật tài nguyên nước', 'A00, A01, D01, D07'),
+('TLA103', 'Thủy văn học', 'A00, A01, D01, D07'),
+('TLA104', 'Kỹ thuật xây dựng', 'A00, A01, D01, D07'),
+('TLA105', 'Nhóm ngành Kỹ thuật Cơ khí', 'A00, A01, D01, D07'),
+('TLA106', 'Nhóm ngành Công nghệ thông tin', 'A00, A01, D01, D07'),
+('TLA107', 'Kỹ thuật cấp thoát nước', 'A00, A01, D01, D07'),
+('TLA109', 'Kỹ thuật môi trường', 'A00, A01, B00, D01'),
+('TLA110', 'Kỹ thuật cơ sở hạ tầng', 'A00, A01, D01, D07'),
+('TLA111', 'Công nghệ kỹ thuật xây dựng', 'A00, A01, D01, D07'),
+('TLA112', 'Kỹ thuật điện', 'A00, A01, D01, D07'),
+('TLA113', 'Kỹ thuật xây dựng công trình giao thông', 'A00, A01, D01, D07'),
+('TLA114', 'Quản lý xây dựng', 'A00, A01, D01, D07'),
+('TLA118', 'Kỹ thuật hóa học', 'A00, B00, D07'),
+('TLA119', 'Công nghệ sinh học', 'A00, A02, B00, D08'),
+('TLA120', 'Kỹ thuật cơ điện tử', 'A00, A01, D01, D07'),
+('TLA121', 'Kỹ thuật điều khiển và tự động hóa', 'A00, A01, D01, D07'),
+('TLA123', 'Kỹ thuật ô tô', 'A00, A01, D01, D07'),
+('TLA401', 'Kinh tế', 'A00, A01, D01, D07'),
+('TLA402', 'Quản trị kinh doanh', 'A00, A01, D01, D07'),
+('TLA403', 'Kế toán', 'A00, A01, D01, D07');
 
 -- --------------------------------------------------------
 
@@ -281,6 +365,19 @@ ALTER TABLE `baiviet`
   ADD KEY `baiviet_ibfk_1` (`matk`);
 
 --
+-- Chỉ mục cho bảng `diemchuan`
+--
+ALTER TABLE `diemchuan`
+  ADD PRIMARY KEY (`madiem`),
+  ADD KEY `diemchuan_ibfk_1` (`manganh`);
+
+--
+-- Chỉ mục cho bảng `nganh`
+--
+ALTER TABLE `nganh`
+  ADD PRIMARY KEY (`manganh`);
+
+--
 -- Chỉ mục cho bảng `quan`
 --
 ALTER TABLE `quan`
@@ -314,12 +411,17 @@ ALTER TABLE `truong`
 -- AUTO_INCREMENT cho bảng `baiviet`
 --
 ALTER TABLE `baiviet`
-  MODIFY `mabv` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `mabv` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+--
+-- AUTO_INCREMENT cho bảng `diemchuan`
+--
+ALTER TABLE `diemchuan`
+  MODIFY `madiem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `matk` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `matk` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
@@ -329,6 +431,12 @@ ALTER TABLE `taikhoan`
 --
 ALTER TABLE `baiviet`
   ADD CONSTRAINT `baiviet_ibfk_1` FOREIGN KEY (`matk`) REFERENCES `taikhoan` (`matk`);
+
+--
+-- Các ràng buộc cho bảng `diemchuan`
+--
+ALTER TABLE `diemchuan`
+  ADD CONSTRAINT `diemchuan_ibfk_1` FOREIGN KEY (`manganh`) REFERENCES `nganh` (`manganh`);
 
 --
 -- Các ràng buộc cho bảng `quan`
