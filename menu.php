@@ -8,7 +8,9 @@
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="admin.php?id=<?php echo $matk?>"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-<?php if($maquyen == "3") { echo '<li class="nav-item" role="presentation"><a class="nav-link" href="User.php?id='.$matk.'"><i class="fas fa-users"></i><span>User</span></a></li>'; }?>
+                    <?php if($maquyen == "3") {
+                    echo '<li class="nav-item" role="presentation"><a class="nav-link" href="User.php?id='.$matk.'"><i class="fas fa-users"></i><span>User</span></a></li>';
+                    echo '<li class="nav-item" role="presentation"><a class="nav-link" href="qldiemchuan.php?id='.$matk.'"><i class="fas fa-users"></i><span>Điểm chuẩn</span></a></li>'; }?>
                     
                     <li class="nav-item" role="presentation"><a class="nav-link" href="Post.php?id=<?php echo $matk?>"><i class="fas fa-upload"></i><span>Posts</span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="TuyenSinh.php?id=<?php echo $matk?>'"><i class="fab fa-wpforms"></i><span>Tuyển sinh</span></a></li>

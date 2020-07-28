@@ -56,7 +56,12 @@
     <nav class="mainmenu" id="mainmenu">
     <ul class="menu clearfix">
             <li><a href="index.php"><i class="fa fa-home" aria-hidden="true" style="font-size:130%"></i></a></li>
-            <li><a href="#">Tin tức và thông báo</a></li>
+            <li><a>Tin tức & thông báo</a>
+              <ul class="sub-menu">
+                  <li><a  href="tintuc.php">Tin tức</a></li>
+                  <li><a  href="thongbao.php">Thông báo</a></li>
+              </ul>
+            </li>
             <li>
                 <a>Tuyển sinh</a>
                 <ul class="sub-menu">
@@ -71,10 +76,10 @@
             <li>
                 <a>Đạo tạo</a>
                 <ul class="sub-menu">
-                    <li><a  href="ctdtdaihoc.php">Đại học chính quy</a></li>
-                    <li><a  href="ctdtthacsi.php">Thạc sĩ</a></li>
-                    <li><a  href="ctdttiensi.php">Tiến sĩ</a></li>
-                    <li><a  href="ctdtvuahocvualam.php">Vừa học vừa làm</a></li>
+                    <li><a  href="chuongtrinhdhcq.php">Đại học chính quy</a></li>
+                    <li><a  href="chuongtrinhths.php">Thạc sĩ</a></li>
+                    <li><a  href="chuongtrinhts.php">Tiến sĩ</a></li>
+                    <li><a  href="chuongtrinhvhvl.php">Vừa học vừa làm</a></li>
                 </ul>
             </li>
             <li>
@@ -94,7 +99,7 @@
                 <a>Sinh viên</a>
                 <ul class="sub-menu">
                   <li><a href="#">Học phí</a></li>
-                  <li><a href="#">Điểm chuẩn</a></li>
+                  <li><a href="diemchuan.php">Điểm chuẩn</a></li>
                   <li><a href="#">Tra cứu thông tin</a></li>
                 </ul>
             </li>

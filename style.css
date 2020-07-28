@@ -709,6 +709,12 @@ body {
     padding-bottom: 5px;
     background-color: #fff;
   }
+  .pull-right {
+    float: right;
+}
+.pull-left {
+    float: left;
+}
   .forms input.form-control,
   .forms select.form-control {
     height: 32px;
@@ -1012,3 +1018,5 @@ body {
   font-size: 18px;
   line-height: 24px;
 }
+.tab{width:100%;display:none;padding:1rem;background:#fafafa;border:2px solid #90CAF9}
+.tab.active{display:block}
