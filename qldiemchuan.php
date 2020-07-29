@@ -33,22 +33,70 @@ $maquyen = $row['maquyen'];
             </div>
             </nav>
             <div class="container-fluid" style="overflow: auto;">
-            <div class="row pull-right">
-                <strong>Năm:</strong> 
-                <select class="form-control" style="width:100px; height:30px" id="nam" name="nam">
-                <?php
-                $sqlnam="select distinct nam from diemchuan order by nam desc";
-                mysqli_set_charset($conn, 'UTF8');
-                $resultnam = mysqli_query($conn, $sqlnam);
-                if (mysqli_num_rows($resultnam) > 0) {
-                while ($rownam = mysqli_fetch_assoc($resultnam)) {
-                    echo '<option value="' . $rownam['nam'] . '" ><a href="#">' . $rownam['nam'] . '</a></option>';
-                }
-                }
-                ?> 
-                </select>
-                
-            </div>
+            <div class="row">
+                        <div class="row col-lg-8" style="margin-bottom: 10px;">
+                        <strong>Cơ sở đào tạo :</strong> 
+                        <select class="form-control" name="cosodaotao" id="cosodaotao" style="width: 200px; height:30px" tabindex="-1" aria-hidden="true">
+                            <?php 
+                                require('connect.php');
+                                $resultcoso=mysqli_query($conn, "select * from cosodaotao");
+                                while($rowcoso = mysqli_fetch_array($resultcoso)){
+                                    echo '<option value="'.$rowcoso['macoso'].'" >' .$rowcoso['tencoso']. '</option>';
+                                }
+                                ?>
+                        </select>
+                        <script>
+                        $(document).ready(function(){
+                            $("#cosodaotao").on('change',function(){
+                                var macoso=$(this).val();
+                                var d=document.getElementById("nam");
+                                var nam=d.options[d.selectedIndex].value;
+                                var matk='<?php echo $matk?>';
+                                $.ajax({
+                                    method:"POST",
+                                    url:"ajax.php",
+                                    data:{idcoso3:macoso,idnam:nam, idtk:matk},
+                                    dataType:"html",
+                                    success:function(data){
+                                    $("#bangdiem").html(data);
+                                }
+                                });
+                            });
+                            $("#nam").on('change',function(){
+                                var nam=$(this).val();
+                                var c=document.getElementById("cosodaotao");
+                                var macoso=c.options[c.selectedIndex].value;
+                                var matk='<?php echo $matk?>';
+                                $.ajax({
+                                    method:"POST",
+                                    url:"ajax.php",
+                                    data:{idcoso3:macoso,idnam:nam, idtk:matk},
+                                    dataType:"html",
+                                    success:function(data){
+                                    $("#bangdiem").html(data);
+                                }
+                                });
+                            });
+                        });
+                    </script>
+                        </div>
+                        <div class="row" style="margin-bottom: 10px;">
+                            <strong>Năm:</strong> 
+                            <select class="form-control" style="width:100px; height:30px" id="nam" name="nam">
+                            <?php
+                            require('connect.php');
+                            $sqlnam="select distinct nam from diemchuan order by nam desc";
+                            mysqli_set_charset($conn, 'UTF8');
+                            $resultnam = mysqli_query($conn, $sqlnam);
+                            if (mysqli_num_rows($resultnam) > 0) {
+                            while ($rownam = mysqli_fetch_assoc($resultnam)) {
+                                echo '<option value="' . $rownam['nam'] . '" ><a href="#">' . $rownam['nam'] . '</a></option>';
+                            }}
+                            mysqli_close($conn);
+                            ?> 
+                            </select>
+                        </div>
+                    </div>
             <div >
                 <table id="example" class="table table-striped table-bordered" width="100%">
                 <thead>
@@ -66,40 +114,34 @@ $maquyen = $row['maquyen'];
                 </thead>
                 <tbody id="bangdiem" name="bangdiem">
                 <?php 
-                $result=mysqli_query($conn, "select * from diemchuan,nganh where diemchuan.manganh=nganh.manganh and nam='2020'");
-                $i=1;
-                while($rowtk = mysqli_fetch_array($result)){
-                    echo '<tr><td>'.$i.'</td>';
-                    echo '<td>'.$rowtk['manganh'].'</td>';
-                    echo '<td>'.$rowtk['tennganh'].'</td>';
-                    echo '<td>'.$rowtk['matohop'].'</td>';
-                    echo '<td>'.$rowtk['chitieu'].'</td>';
-                    echo '<td>'.$rowtk['diem'].'</td>';
-                    echo '<td>'.$rowtk['dieukien'].'</td>';
-                    echo '<td><a href="suadiem.php?id='.$matk.'&diem='.$rowtk['madiem'].'"><img src="images/edit.gif" border="0"></a></td>';
-                    echo '<td><a href="xulyxoadc.php?id='.$matk.'&diem='.$rowtk['madiem'].'"><img src="images/deleted.jpg" border="0"></a></td></tr>';
-                    $i++;
-        }?>
+                            require('connect.php');
+                            $result=mysqli_query($conn, "select * from diemchuan,nganh where diemchuan.manganh=nganh.manganh 
+                            and macoso='1' and nam='2020'");
+                            $i=1;
+                            while($rowtk = mysqli_fetch_array($result)){
+                                $manganh=$rowtk['manganh'];
+                                echo '<tr><td>'.$i.'</td>';
+                                echo '<td>'.$rowtk['manganh'].'</td>';
+                                echo '<td>'.$rowtk['tennganh'].'</td>';
+                                $resulttohop=mysqli_query($conn, "select * from nganh_tohop,tohop,nganh where nganh_tohop.manganh=nganh.manganh and nganh_tohop.matohop=tohop.matohop and nganh.manganh='$manganh'");
+                                $tohopmon="";
+                                while($rowtohop = mysqli_fetch_array($resulttohop)){
+                                    $tohopmon=$tohopmon.$rowtohop['tentohop'].", ";
+                                }
+                                echo '<td>'.$tohopmon.'</td>';
+                                echo '<td>'.$rowtk['chitieu'].'</td>';
+                                echo '<td>'.$rowtk['diem'].'</td>';
+                                echo '<td>'.$rowtk['dieukien'].'</td>';
+                                echo '<td><a href="suadiem.php?id='.$matk.'&diem='.$rowtk['madiem'].'"><img src="images/edit.gif" border="0"></a></td>';
+                                echo '<td><a href="xulyxoadc.php?id='.$matk.'&diem='.$rowtk['madiem'].'"><img src="images/deleted.jpg" border="0"></a></td></tr>';
+                                $i++;
+                            }
+                            mysqli_close($conn);
+                            ?>
                 </tbody>
                 </table>
             </div>
-            <script>
-                    $(document).ready(function(){
-                    $("#nam").on('change',function(){
-                        var nam=$(this).val();
-                        var matk='<?php echo $matk?>';
-                        $.ajax({
-                            type:"POST",
-                            url:"ajax.php",
-                            data:{idnam:nam , idtk:matk},
-                            dataType:"html",
-                            success:function(data){
-                            $("#bangdiem").html(data);
-                        }
-                        });
-                    });
-                });
-                </script>
+            
             </div>
         </div>
         <footer class="bg-white sticky-footer">

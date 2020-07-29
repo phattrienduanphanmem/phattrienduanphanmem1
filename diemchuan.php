@@ -9,7 +9,53 @@ include("header.php");
                 <?php include("menusinhvien.php");?>
                 <div class="col-md-8 col-lg-9 col-main">
                     <div class="row">
-                        <div class="col-lg-10">Điểm chuẩn trường đại học Thủy Lợi</div>
+                        <div class="col-lg-5" style="margin-bottom: 10px;">Điểm chuẩn trường đại học Thủy Lợi</div>
+                    </div>
+                    <div class="row">
+                        <div class="row col-lg-8" style="margin-bottom: 10px;">
+                        <strong>Cơ sở đào tạo :</strong> 
+                        <select class="form-control" name="cosodaotao" id="cosodaotao" style="width: 200px; height:30px" tabindex="-1" aria-hidden="true">
+                            <?php 
+                                require('connect.php');
+                                $resultcoso=mysqli_query($conn, "select * from cosodaotao");
+                                while($rowcoso = mysqli_fetch_array($resultcoso)){
+                                    echo '<option value="'.$rowcoso['macoso'].'" >' .$rowcoso['tencoso']. '</option>';
+                                }
+                                ?>
+                        </select>
+                        <script>
+                        $(document).ready(function(){
+                            $("#cosodaotao").on('change',function(){
+                                var macoso=$(this).val();
+                                var d=document.getElementById("nam");
+                                var nam=d.options[d.selectedIndex].value;
+                                $.ajax({
+                                    method:"POST",
+                                    url:"ajax.php",
+                                    data:{idcoso2:macoso,idnam2:nam},
+                                    dataType:"html",
+                                    success:function(data){
+                                    $("#bangdiem").html(data);
+                                }
+                                });
+                            });
+                            $("#nam").on('change',function(){
+                                var nam=$(this).val();
+                                var c=document.getElementById("cosodaotao");
+                                var macoso=c.options[c.selectedIndex].value;
+                                $.ajax({
+                                    method:"POST",
+                                    url:"ajax.php",
+                                    data:{idcoso2:macoso,idnam2:nam},
+                                    dataType:"html",
+                                    success:function(data){
+                                    $("#bangdiem").html(data);
+                                }
+                                });
+                            });
+                        });
+                    </script>
+                        </div>
                         <div class="row" style="margin-bottom: 10px;">
                             <strong>Năm:</strong> 
                             <select class="form-control" style="width:100px; height:30px" id="nam" name="nam">
@@ -43,13 +89,20 @@ include("header.php");
                             <tbody id="bangdiem" name="bangdiem">
                             <?php 
                             require('connect.php');
-                            $result=mysqli_query($conn, "select * from diemchuan,nganh where diemchuan.manganh=nganh.manganh and nam='2020'");
+                            $result=mysqli_query($conn, "select * from diemchuan,nganh where diemchuan.manganh=nganh.manganh 
+                            and macoso='1' and nam='2020'");
                             $i=1;
                             while($rowtk = mysqli_fetch_array($result)){
+                                $manganh=$rowtk['manganh'];
                                 echo '<tr><td>'.$i.'</td>';
                                 echo '<td>'.$rowtk['manganh'].'</td>';
                                 echo '<td>'.$rowtk['tennganh'].'</td>';
-                                echo '<td>'.$rowtk['matohop'].'</td>';
+                                $resulttohop=mysqli_query($conn, "select * from nganh_tohop,tohop,nganh where nganh_tohop.manganh=nganh.manganh and nganh_tohop.matohop=tohop.matohop and nganh.manganh='$manganh'");
+                                $tohopmon="";
+                                while($rowtohop = mysqli_fetch_array($resulttohop)){
+                                    $tohopmon=$tohopmon.$rowtohop['tentohop'].", ";
+                                }
+                                echo '<td>'.$tohopmon.'</td>';
                                 echo '<td>'.$rowtk['chitieu'].'</td>';
                                 echo '<td>'.$rowtk['diem'].'</td>';
                                 echo '<td>'.$rowtk['dieukien'].'</td></tr>';
@@ -62,18 +115,7 @@ include("header.php");
                     </div>
                     <script>
                     $(document).ready(function(){
-                    $("#nam").on('change',function(){
-                        var nam=$(this).val();
-                        $.ajax({
-                            type:"POST",
-                            url:"ajax.php",
-                            data:{idnam2:nam},
-                            dataType:"html",
-                            success:function(data){
-                            $("#bangdiem").html(data);
-                        }
-                        });
-                    });
+                    
                 });
                 </script>
                 </div>              

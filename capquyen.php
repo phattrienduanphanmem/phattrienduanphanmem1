@@ -60,8 +60,8 @@ $result = mysqli_query($conn, $sql);
             <div class="col-md-2">
                 <select name="quyen" id="quyen" class="form-control">
                 <option value=""></option>
-                <option value="admin">Admin</option>
-                <option value="manager">Manager</option>
+                <option value="admin">Super Admin</option>
+                <option value="manager">Admin</option>
                 
                 </select>
             </div>

@@ -15,7 +15,7 @@
             $maquyen='';
             break;
     }
-    if(isset($maquyen)|| $taikhoan==''){
+    if($maquyen!=""&$taikhoan!=""){
         $sql = "UPDATE taikhoan set maquyen ='$maquyen' where email='$taikhoan';";
         mysqli_set_charset($conn,'UTF8');
         if(mysqli_query($conn,$sql)){

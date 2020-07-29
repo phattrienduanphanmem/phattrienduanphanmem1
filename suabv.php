@@ -9,21 +9,13 @@ $maquyen = $row['maquyen'];
 $sqlpost = "Select * from baiviet where mabv = '$mabv'";
 $rowpost = mysqli_fetch_assoc(mysqli_query($conn, $sqlpost));
 Switch($rowpost['chude']){
-    case 'Tuyển sinh đại học':
-        $chude='tsdaihoc';
+    case 'Thông báo':
+        $chude='tb';
         break;
-    case 'Tuyển sinh thạc sĩ':
-        $chude='tsthacsi';
+    case 'Tin tức':
+        $chude='tt';
         break;
-    case 'Tuyển sinh tiến sĩ':
-        $chude='tstiensi';
-        break;
-    case 'Tin tức đại học':
-        $chude='ttdaihoc';
-        break;
-    case 'Tin tức sau đại học':
-        $chude='ttsaudaihoc';
-        break;
+
 }
 ?>
 
@@ -73,7 +65,9 @@ Switch($rowpost['chude']){
                         </div>
                     </div>
                     <h6 style="color: rgb(0,0,0);">Nội dung</h6><input class="form-control" id="noidung" name="noidung" type="text" required value="<?php echo $rowpost['noidung'] ?>">
-                <hr><button class="btn btn-primary" type="submit"id="newpost" name="newpost">Sửa bài viết</button></div>
+                <hr><div><button class="btn btn-primary" type="submit"id="newpost" name="newpost">Sửa bài viết</button>
+                <button class="btn btn-primary" type="button"><a class= "a_back" href="Post.php?id=<?php echo $matk?>">Thoát</a></button></div>
+            </div>
             </form>
         </div>
         <footer class="bg-white sticky-footer">

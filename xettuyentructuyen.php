@@ -695,12 +695,43 @@ $resulttinh3 = mysqli_query($conn, $sqltinh);
                 <div class="row">
                     <div class="col-sm-6 col-12">
                         <label>Cơ sở đào tạo :</label>
-                        <select class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                            <option value="?" selected="selected"></option>
-                            <option label="Cơ sở Hà Nội" value="string:TLA">Cơ sở Hà Nội</option>
-                            <option label="Cơ sở Phố Hiến" value="string:PHA">Cơ sở Phố Hiến</option>
-                            <option label="Phân hiệu Miền Nam" value="string:TLS">Phân hiệu Miền Nam</option>
+                        <select class="form-control" name="cosodaotao" id="cosodaotao" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                            <option value="" selected="selected"></option><?php 
+                                require('connect.php');
+                                $resultcoso=mysqli_query($conn, "select * from cosodaotao");
+                                while($rowcoso = mysqli_fetch_array($resultcoso)){
+                                    echo '<option value="'.$rowcoso['macoso'].'" >' .$rowcoso['tencoso']. '</option>';
+                                }
+                                ?>
                         </select>
+                        <script>
+                        $(document).ready(function(){
+                            $("#cosodaotao").on('change',function(){
+                                var macoso=$(this).val();
+                                $.ajax({
+                                    method:"POST",
+                                    url:"ajax.php",
+                                    data:{idcoso:macoso},
+                                    dataType:"html",
+                                    success:function(data){
+                                    $("#nganh").html(data);
+                                }
+                                });
+                            });
+                            $("#nganh").on('change',function(){
+                                var manganh=$(this).val();
+                                $.ajax({
+                                    method:"POST",
+                                    url:"ajax.php",
+                                    data:{idnganh:manganh},
+                                    dataType:"html",
+                                    success:function(data){
+                                    $("#tohop").html(data);
+                                }
+                                });
+                            });
+                        });
+                    </script>
                     </div>
                     <div class="col-sm-6 col-12">
                         <label>Nguyện vọng:</label>
@@ -714,19 +745,24 @@ $resulttinh3 = mysqli_query($conn, $sqltinh);
                 <div class="row">
                     <div class="col-sm-4 col-12">
                         <label>Ngành/Nhóm ngành xét tuyển :</label>
-                        <select class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true"><option value="?" selected="selected"></option></select>
+                        <select class="form-control" style="width: 100%;" tabindex="-1" name="nganh" id="nganh" aria-hidden="true" onchange="chonnganh();">
+                        
+                        </select>
+                        <script>
+                                function chonnganh(){
+                                    var d=document.getElementById("nganh");
+                                    var idnganh=d.options[d.selectedIndex].value;
+                                    document.getElementById("manganh").value=idnganh;
+                            }
+                            </script>
                     </div>
                     <div class="col-sm-4 col-12">
                         <label>Mã xét tuyển :</label>
-                        <input type="text" class="form-control" placeholder="mã xét tuyển" required="" disabled="">
+                        <input type="text" name="manganh" id="manganh" class="form-control" placeholder="mã xét tuyển" required="" disabled="">
                     </div>
                     <div class="col-sm-4 col-12">
                         <label>Tổ hợp xét tuyển:</label>
-                        <select  class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                            <option value="?" selected="selected"></option><option label="A00" value="string:A00">A00</option>
-                            <option label="A01" value="string:A01">A01</option><option label="A02" value="string:A02">A02</option>
-                            <option label="B00" value="string:B00">B00</option><option label="D01" value="string:D01">D01</option>
-                            <option label="D07" value="string:D07">D07</option><option label="D08" value="string:D08">D08</option>
+                        <select  class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" name="tohop" id="tohop">
                         </select>
                     </div>
                 </div>

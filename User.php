@@ -56,9 +56,9 @@ $maquyen = $row['maquyen'];
               <?php
                 if (mysqli_num_rows($result) > 0) {
                   while ($rowtk = mysqli_fetch_assoc($result)) {
-                    if ($rowtk['maquyen']==3) $maquyen1='Admin';
+                    if ($rowtk['maquyen']==3) $maquyen1='Super Admin';
                     else 
-                    {if ($rowtk['maquyen']==2) $maquyen1='Manager';
+                    {if ($rowtk['maquyen']==2) $maquyen1='Admin';
                     else $maquyen1='Viewer';
                     }
                     echo '<tr><td>'.$rowtk['matk'].'</td>';

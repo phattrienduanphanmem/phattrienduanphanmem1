@@ -36,6 +36,19 @@ $maquyen = $row['maquyen'];
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-4 col-12">
+                            <label>Cơ sở đào tạo:</label>
+                            <select class="form-control" name="cosodaotao" id="cosodaotao"style="width: 100%;" tabindex="-1" aria-hidden="true" onchange="chonnganh();" >
+                                <option value="" ></option>
+                                <?php 
+                                require('connect.php');
+                                $resultnganh=mysqli_query($conn, "select * from cosodaotao");
+                                while($rownganh = mysqli_fetch_array($resultnganh)){
+                                    echo '<option value="'.$rownganh['macoso'].'" >' .$rownganh['tencoso']. '</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="col-sm-4 col-12">
                             <label>Ngành:</label>
                             <script>
                                 function chonnganh(){
@@ -45,14 +58,24 @@ $maquyen = $row['maquyen'];
                             }
                             </script>
                             <select class="form-control" name="nganh" id="nganh"style="width: 100%;" tabindex="-1" aria-hidden="true" onchange="chonnganh();" >
-                                <?php 
-                                require('connect.php');
-                                $resultnganh=mysqli_query($conn, "select * from nganh");
-                                while($rownganh = mysqli_fetch_array($resultnganh)){
-                                    echo '<option value="'.$rownganh['manganh'].'" >' .$rownganh['tennganh']. '</option>';
-                                }
-                                ?>
+
                             </select>
+                            <script>
+                            $(document).ready(function(){
+                                $("#cosodaotao").on('change',function(){
+                                    var macoso=$(this).val();
+                                    $.ajax({
+                                        method:"POST",
+                                        url:"ajax.php",
+                                        data:{idcoso:macoso},
+                                        dataType:"html",
+                                        success:function(data){
+                                        $("#nganh").html(data);
+                                    }
+                                    });
+                                });
+                            });
+                            </script>
                         </div>
                         <div class="col-sm-4 col-12">
                             <label>Mã ngành:</label>

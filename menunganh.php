@@ -8,7 +8,7 @@
             <ul class="category-list">
                 <?php
                     include("connect.php");
-                    $result=mysqli_query($conn, "select * from nganh");
+                    $result=mysqli_query($conn, "select * from nganh where macoso='1'");
                     while($row = mysqli_fetch_array($result)){
                         echo '<li style="list-style:disc;margin-left:10px"><a href="nganhdaotao.php?id='.$row['manganh'].'">' .$row['tennganh']. '</a></li>';
                     }

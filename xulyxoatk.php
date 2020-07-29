@@ -2,7 +2,7 @@
     $taikhoan=$_POST['taikhoan'];
     $matk=$_GET['id'];
     require('connect.php');
-    if(isset($taikhoan)){
+    if($taikhoan!=""){
         $sql = "DELETE FROM taikhoan WHERE email='$taikhoan';";
         mysqli_set_charset($conn,'UTF8');
         if(mysqli_query($conn,$sql)){

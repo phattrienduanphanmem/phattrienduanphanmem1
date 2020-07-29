@@ -13,7 +13,7 @@
                     echo '<li class="nav-item" role="presentation"><a class="nav-link" href="qldiemchuan.php?id='.$matk.'"><i class="fas fa-users"></i><span>Điểm chuẩn</span></a></li>'; }?>
                     
                     <li class="nav-item" role="presentation"><a class="nav-link" href="Post.php?id=<?php echo $matk?>"><i class="fas fa-upload"></i><span>Posts</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="TuyenSinh.php?id=<?php echo $matk?>'"><i class="fab fa-wpforms"></i><span>Tuyển sinh</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="TuyenSinh.php?id=<?php echo $matk?>"><i class="fab fa-wpforms"></i><span>Tuyển sinh</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
