@@ -2,7 +2,7 @@
     $namechude=$_POST['chude'];
     $tieude =$_POST['tieude'];
     $noidung =$_POST['noidung'];
-    $matk=$_GET['id'];
+    $matk=$_SESSION['matk'];
     require('connect.php');
     Switch($namechude){
         case 'tt':
@@ -34,27 +34,27 @@
             if(mysqli_query($conn,$sql)){
                 echo '<script language="javascript">';
                 echo 'alert("Tạo bài viết thành công");';
-                echo 'location.href="thembaiviet.php?id='.$matk.'";';
+                echo 'location.href="thembaiviet.php";';
                 echo '</script>';
             }
             else{
                 echo '<script language="javascript">';
                 echo 'alert("Tạo bài viết thất bại");';
-                echo 'location.href="thembaiviet.php?id='.$matk.'";';
+                echo 'location.href="thembaiviet.php";';
                 echo '</script>';
             };
         }
         else{
             echo '<script language="javascript">';
             echo 'alert("Up ảnh thất bại");';
-            echo 'location.href="thembaiviet.php?id='.$matk.'";';
+            echo 'location.href="thembaiviet.php";';
             echo '</script>';
         }
     }
     else{
         echo '<script language="javascript">';
         echo 'alert("'.$error['image'].'");';
-        echo 'location.href="thembaiviet.php?id='.$matk.'";';
+        echo 'location.href="thembaiviet.php";';
         echo '</script>';
     }
     mysqli_close($conn);

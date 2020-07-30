@@ -5,7 +5,7 @@
         </div>
         <div class="column-2">
             <ul style="padding-left: 0px;">
-                <li><a  href="#">Học phí</a></li>
+                <li><a  href="hocphi.php">Học phí</a></li>
                 <li><a  href="diemchuan.php">Điểm chuẩn</a></li>
                 <li><a  href="#">Tra cứu thông tin</a></li>
             </ul>

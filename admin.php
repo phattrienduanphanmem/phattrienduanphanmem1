@@ -1,11 +1,11 @@
 <?php
+session_start();
+if(empty($_SESSION['matk'])){ header('Location: login.php');}
 include("head.php");
-$matk=$_GET['id'];
+$matk=$_SESSION['matk'];
 require('connect.php');
-$sql = "Select * from taikhoan where matk = '$matk'";
-$row = mysqli_fetch_assoc(mysqli_query($conn, $sql));
-$maquyen = $row['maquyen'];
-if($maquyen=="3"){$sqlpost = "Select * from baiviet";}
+$row=mysqli_fetch_assoc(mysqli_query($conn, "select * from taikhoan where matk='$matk'"));
+if($_SESSION['quyen']=="3"){$sqlpost = "Select * from baiviet";}
 else {$sqlpost = "Select * from baiviet where matk = '$matk'";}
 $resultpost = mysqli_query($conn, $sqlpost);
 $sqltk="select * from taikhoan";
@@ -31,7 +31,7 @@ $resulttk = mysqli_query($conn, $sqltk);
                                     <span class="d-none d-lg-inline mr-2 text-gray-600 small"><?php echo $row['tentk']?></span>
                                     <img class="border rounded-circle img-profile" src="images/avatar5.jpeg"></a>
                                     <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="hoso.php?id=<?php echo $row['matk']?>"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
-                                    <div class="dropdown-divider"></div><a class="dropdown-item" role="presentation" href="login.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a></div>
+                                    <div class="dropdown-divider"></div><a class="dropdown-item" role="presentation" href="logout.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a></div>
                                 </div>
                             </li>
                         </ul>
@@ -51,7 +51,7 @@ $resulttk = mysqli_query($conn, $sqltk);
                             </thead>
                             <tbody>
                             <?php
-                                if($maquyen!='1'){
+                                if($_SESSION['quyen']!='1'){
                                 if (mysqli_num_rows($resulttk) > 0) {
                                 while ($row = mysqli_fetch_assoc($resulttk)) {
                                     if ($row['maquyen']==3) $maquyen1='Admin';

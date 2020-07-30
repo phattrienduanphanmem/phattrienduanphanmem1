@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th7 29, 2020 lúc 03:27 CH
+-- Thời gian đã tạo: Th7 30, 2020 lúc 03:00 CH
 -- Phiên bản máy phục vụ: 10.4.10-MariaDB
 -- Phiên bản PHP: 5.6.30
 
@@ -53,12 +53,27 @@ CREATE TABLE `baiviet` (
 --
 
 INSERT INTO `baiviet` (`mabv`, `chude`, `tieude`, `anh`, `noidung`, `ngaytao`, `matk`) VALUES
-(16, 'Tin tức', ' Trường Đại học Thủy lợi thông báo Tuyển sinh đại học hệ chính quy năm 2020', 'images/images_post/0e78cc85ad6080a9d1bbd6f11db5193c5b02809d5d29c_4080eda1a706ce63f272259076427490.jpg', 'Căn cứ Công văn số 1778/BGDĐT-GDĐH ngày 22/5/2020 về hướng dẫn công tác tuyển sinh trình độ đại học của Bộ Giáo dục và Đào tạo,Trường Đại học Thủy lợi thông báo tuyển sinh đại học hệ chính quy năm 2020', '2020-07-29 13:52:21', 17),
+(16, 'Tin tức', ' Trường Đại học Thủy lợi thông báo Tuyển sinh đại học hệ chính quy năm 2019', 'images/images_post/0e78cc85ad6080a9d1bbd6f11db5193c5b02809d5d29c_4080eda1a706ce63f272259076427490.jpg', 'Căn cứ Công văn số 1778/BGDĐT-GDĐH ngày 22/5/2020 về hướng dẫn công tác tuyển sinh trình độ đại học của Bộ Giáo dục và Đào tạo,Trường Đại học Thủy lợi thông báo tuyển sinh đại học hệ chính quy năm 2020', '2020-07-30 09:35:52', 17),
 (17, 'Thông báo', 'Hướng dẫn thí sinh kiểm tra hồ sơ đăng ký xét tuyển online', 'images/images_post/18-hinh-nen-powerpoint-mau-tim-giup-bai-thuyet-trinh-them-thu-hut-1489724046-9.gif', 'Để kiểm tra kết quả đăng ký xét tuyển vào trường theo hình thức xét tuyển học bạ online, Nhà trường sẽ xem kỹ các bước sau:', '2020-07-28 04:39:20', 17),
 (18, 'Tin tức', 'Đề án tuyển sinh đại học Thủy lợi năm 2020', 'images/images_post/20-hinh-nen-don-gian-dam-chat-ca-tinh-danh-cho-bai-thuyet-trinh-1494511523-7.jpg', 'Trường Đại học Thủy lợi công bố Đề án tuyển sinh đại học năm 2020', '2020-07-28 04:39:46', 17),
 (19, 'Thông báo', 'Quyết định điểm chuẩn năm 2019 tại cơ sở mở rộng Phố Hiến của Trường ĐH Thủy lợi', 'images/images_post/40-hinh-nen-powerpoint-ve-moi-truong-cuc-chat-cho-bai-thuyet-trinh-5.jpg', 'Quyết định điểm chuẩn năm 2019 tại cơ sở mở rộng Phố Hiến của Trường ĐH Thủy lợi', '2020-07-28 04:40:39', 17),
-(20, 'Tin tức', 'Kế hoạch và quy trình xác nhận nhập học đối với thí sinh trúng tuyển đợt 1 Đại học chính quy năm 201', 'images/images_post/40-hinh-nen-powerpoint-ve-moi-truong-cuc-chat-cho-bai-thuyet-trinh-10.png', 'Kế hoạch và quy trình xác nhận nhập học đối với thí sinh trúng tuyển đợt 1 Đại học chính quy năm 2019', '2020-07-28 04:41:12', 17),
-(21, 'Tin tức', 'tieude', 'images/images_post/Sơ_đồ_thực_thể_ERD.png', 'sdtfyt', '2020-07-29 15:12:23', 17);
+(20, 'Tin tức', 'Kế hoạch và quy trình xác nhận nhập học đối với thí sinh trúng tuyển đợt 1 Đại học chính quy năm 201', 'images/images_post/40-hinh-nen-powerpoint-ve-moi-truong-cuc-chat-cho-bai-thuyet-trinh-10.png', 'Kế hoạch và quy trình xác nhận nhập học đối với thí sinh trúng tuyển đợt 1 Đại học chính quy năm 2019', '2020-07-28 04:41:12', 17);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `cauhoi`
+--
+
+CREATE TABLE `cauhoi` (
+  `macauhoi` int(11) NOT NULL,
+  `hotennguoigui` varchar(20) NOT NULL,
+  `sdt` int(15) NOT NULL,
+  `emailnguoigui` varchar(150) NOT NULL,
+  `tieudecauhoi` varchar(200) NOT NULL,
+  `noidungcauhoi` varchar(2000) NOT NULL,
+  `manganh` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -100,7 +115,7 @@ CREATE TABLE `diemchuan` (
 --
 
 INSERT INTO `diemchuan` (`madiem`, `diem`, `dieukien`, `chitieu`, `nam`, `manganh`) VALUES
-(1, 7, 'Điểm toán >= 6.5', 1600, 2020, 'TLA105'),
+(1, 6.85, 'Điểm toán >= 6.5', 1600, 2020, 'TLA105'),
 (2, 6.5, '', 1700, 2020, 'TLA101'),
 (3, 6.25, '', 1500, 2020, 'TLA102'),
 (4, 20, '', 1600, 2019, 'TLA101'),
@@ -136,19 +151,9 @@ INSERT INTO `diemchuan` (`madiem`, `diem`, `dieukien`, `chitieu`, `nam`, `mangan
 (40, 14.5, '', 1456, 2019, 'TLS111'),
 (41, 13, '', 1678, 2019, 'TLS113'),
 (42, 15.75, '', 1400, 2019, 'TLS402'),
-(43, 16, 'điểm anh > 6', 1500, 2019, 'TLS403');
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `hocphi`
---
-
-CREATE TABLE `hocphi` (
-  `manganh` varchar(10) NOT NULL,
-  `hocphi` int(10) NOT NULL,
-  `sonamdaotao` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+(43, 16, 'điểm anh > 6', 1500, 2019, 'TLS403'),
+(44, 14.5, 'điểm văn >=6.5', 1000, 2020, 'PHA402'),
+(45, 15.35, '', 1200, 2020, 'TLS104');
 
 -- --------------------------------------------------------
 
@@ -665,6 +670,13 @@ ALTER TABLE `baiviet`
   ADD KEY `baiviet_ibfk_1` (`matk`);
 
 --
+-- Chỉ mục cho bảng `cauhoi`
+--
+ALTER TABLE `cauhoi`
+  ADD PRIMARY KEY (`macauhoi`),
+  ADD KEY `cauhoi_ibfk_1` (`manganh`);
+
+--
 -- Chỉ mục cho bảng `cosodaotao`
 --
 ALTER TABLE `cosodaotao`
@@ -676,12 +688,6 @@ ALTER TABLE `cosodaotao`
 ALTER TABLE `diemchuan`
   ADD PRIMARY KEY (`madiem`),
   ADD KEY `diemchuan_ibfk_1` (`manganh`);
-
---
--- Chỉ mục cho bảng `hocphi`
---
-ALTER TABLE `hocphi`
-  ADD KEY `hocphi_ibfk_1` (`manganh`);
 
 --
 -- Chỉ mục cho bảng `nganh`
@@ -764,10 +770,15 @@ ALTER TABLE `anh`
 ALTER TABLE `baiviet`
   MODIFY `mabv` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
+-- AUTO_INCREMENT cho bảng `cauhoi`
+--
+ALTER TABLE `cauhoi`
+  MODIFY `macauhoi` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT cho bảng `diemchuan`
 --
 ALTER TABLE `diemchuan`
-  MODIFY `madiem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `madiem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`
 --
@@ -790,16 +801,16 @@ ALTER TABLE `baiviet`
   ADD CONSTRAINT `baiviet_ibfk_1` FOREIGN KEY (`matk`) REFERENCES `taikhoan` (`matk`);
 
 --
+-- Các ràng buộc cho bảng `cauhoi`
+--
+ALTER TABLE `cauhoi`
+  ADD CONSTRAINT `cauhoi_ibfk_1` FOREIGN KEY (`manganh`) REFERENCES `nganh` (`manganh`);
+
+--
 -- Các ràng buộc cho bảng `diemchuan`
 --
 ALTER TABLE `diemchuan`
   ADD CONSTRAINT `diemchuan_ibfk_1` FOREIGN KEY (`manganh`) REFERENCES `nganh` (`manganh`);
-
---
--- Các ràng buộc cho bảng `hocphi`
---
-ALTER TABLE `hocphi`
-  ADD CONSTRAINT `hocphi_ibfk_1` FOREIGN KEY (`manganh`) REFERENCES `nganh` (`manganh`);
 
 --
 -- Các ràng buộc cho bảng `nganh`

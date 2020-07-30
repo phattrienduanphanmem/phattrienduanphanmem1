@@ -1,9 +1,11 @@
 <?php
-include("head.php");$matk=$_GET['id'];
+session_start();
+if(empty($_SESSION['matk'])){ header('Location: login.php');}
+include("head.php");$matk=$_SESSION['matk'];
 require('connect.php');
 $sql = "Select * from taikhoan where matk = '$matk'";
 $row = mysqli_fetch_assoc(mysqli_query($conn, $sql));
-$maquyen = $row['maquyen'];
+
 if ($row['maquyen']==3) $maquyen1='Admin';
 else 
 {if ($row['maquyen']==2) $maquyen1='Manager';
@@ -24,7 +26,7 @@ $result = mysqli_query($conn, $sql);
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
                         <nav class="navbar navbar-light navbar-expand-md">
-                            <div class="container-fluid"><a class="navbar-brand" href="User.php?id=<?php echo $matk?>">Thông tin tài khoản</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-2"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
+                            <div class="container-fluid"><a class="navbar-brand" href="User.php">Thông tin tài khoản</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-2"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
                         </nav>
                         <ul class="nav navbar-nav flex-nowrap ml-auto">
                             <li class="nav-item dropdown no-arrow" role="presentation">
@@ -33,7 +35,7 @@ $result = mysqli_query($conn, $sql);
                                     <span class="d-none d-lg-inline mr-2 text-gray-600 small"><?php echo $row['tentk']?></span>
                                     <img class="border rounded-circle img-profile" src="images/avatar5.jpeg"></a>
                                     <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
-                                    <div class="dropdown-divider"></div><a class="dropdown-item" role="presentation" href="login.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a></div>
+                                    <div class="dropdown-divider"></div><a class="dropdown-item" role="presentation" href="logout.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a></div>
                                 </div>
                             </li>
                         </ul>

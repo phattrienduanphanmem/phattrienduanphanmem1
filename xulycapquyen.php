@@ -1,7 +1,9 @@
 <?php
+session_start();
+if(empty($_SESSION['matk'])){ header('Location: login.php');}
     $taikhoan=$_POST['taikhoan'];
     $quyen =$_POST['quyen'];
-    $matk=$_GET['id'];
+    $matk=$_SESSION['matk'];
     require('connect.php');
     Switch($quyen){
         case 'admin':
@@ -21,20 +23,20 @@
         if(mysqli_query($conn,$sql)){
             echo '<script language="javascript">';
             echo 'alert("Cấp quyền thành công");';
-            echo 'location.href="capquyen.php?id='.$matk.'";';
+            echo 'location.href="capquyen.php";';
             echo '</script>';
         }
         else{
             echo '<script language="javascript">';
             echo 'alert("Cấp quyền thất bại");';
-            echo 'location.href="capquyen.php?id='.$matk.'";';
+            echo 'location.href="capquyen.php";';
             echo '</script>';
         };
     }
     else{
         echo '<script language="javascript">';
         echo 'alert("hãy chọn tài khoản và quyền được cấp");';
-        echo 'location.href="capquyen.php?id='.$matk.'";';
+        echo 'location.href="capquyen.php";';
         echo '</script>';
     }
     mysqli_close($conn);

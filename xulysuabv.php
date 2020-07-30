@@ -1,8 +1,10 @@
 <?php
+session_start();
+if(empty($_SESSION['matk'])){ header('Location: login.php');}
     $namechude=$_POST['chude'];
     $tieude =$_POST['tieude'];
     $noidung =$_POST['noidung'];
-    $matk=$_GET['id'];
+    $matk=$_SESSION['matk'];
     $mabv=$_GET['post'];
     require('connect.php');
     $sqlpost = "Select * from baiviet where mabv = '$mabv'";
@@ -20,7 +22,7 @@
         if($rowpost['chude']==$chude&$rowpost['tieude']==$tieude&$rowpost['noidung']==$noidung){
         echo '<script language="javascript">';
         echo 'alert("Bài viết không có sự thay đổi nào");';
-        echo 'location.href="Post.php?id='.$matk.'";';
+        echo 'location.href="Post.php";';
         echo '</script>';
         }
         else{
@@ -29,13 +31,13 @@
             if(mysqli_query($conn,$sql)){
                 echo '<script language="javascript">';
                 echo 'alert("Sửa bài viết thành công");';
-                echo 'location.href="Post.php?id='.$matk.'";';
+                echo 'location.href="Post.php";';
                 echo '</script>';
             }
             else{
                 echo '<script language="javascript">';
                 echo 'alert("Sửa bài viết thất bại");';
-                echo 'location.href="Post.php?id='.$matk.'";';
+                echo 'location.href="Post.php";';
                 echo '</script>';
             };
         }
@@ -64,34 +66,34 @@
                 if(mysqli_query($conn,$sql)){
                     echo '<script language="javascript">';
                     echo 'alert("Sửa bài viết thành công");';
-                    echo 'location.href="Post.php?id='.$matk.'";';
+                    echo 'location.href="Post.php";';
                     echo '</script>';
                 }
                 else{
                     echo '<script language="javascript">';
                     echo 'alert("Sửa bài viết thất bại");';
-                    echo 'location.href="Post.php?id='.$matk.'";';
+                    echo 'location.href="Post.php";';
                     echo '</script>';
                 };
             }
             else{
                 echo '<script language="javascript">';
                 echo 'alert("Up ảnh thất bại, không thể sửa bài viết");';
-                echo 'location.href="suabv.php?id='.$matk.'&post='.$mabv.';';
+                echo 'location.href="suabv.php?post='.$mabv.';';
                 echo '</script>';
             }
         }
         else {
             echo '<script language="javascript">';
             echo 'alert("Xóa ảnh cũ trên server thất bại, không thể sửa bài viết");';
-            echo 'location.href="suabv.php?id='.$matk.'&post='.$mabv.';';
+            echo 'location.href="suabv.php?post='.$mabv.';';
             echo '</script>';
         }
     }
     else{
         echo '<script language="javascript">';
         echo 'alert("'.$error['image'].'");';
-        echo 'location.href="suabv.php?id='.$matk.'&post='.$mabv.'";';
+        echo 'location.href="suabv.php?post='.$mabv.'";';
         echo '</script>';
     }
     mysqli_close($conn);

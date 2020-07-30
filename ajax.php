@@ -21,7 +21,7 @@
     if(isset($_POST['idnam'])&isset($_POST['idcoso3'])){
         $nam=$_POST['idnam'];
         $macoso=$_POST['idcoso3'];
-        $matk=$_POST['idtk'];
+        
         $result=mysqli_query($conn, "select * from diemchuan,nganh where diemchuan.manganh=nganh.manganh 
         and macoso='$macoso' and nam='$nam'");
         $i=1;
@@ -39,8 +39,8 @@
             echo '<td>'.$rowtk['chitieu'].'</td>';
             echo '<td>'.$rowtk['diem'].'</td>';
             echo '<td>'.$rowtk['dieukien'].'</td>';
-            echo '<td><a href="suadiem.php?id='.$matk.'&diem='.$rowtk['madiem'].'"><img src="images/edit.gif" border="0"></a></td>';
-            echo '<td><a href="xulyxoadc.php?id='.$matk.'&diem='.$rowtk['madiem'].'"><img src="images/deleted.jpg" border="0"></a></td></tr>';
+            echo '<td><a href="suadiem.php?diem='.$rowtk['madiem'].'"><img src="images/edit.gif" border="0"></a></td>';
+            echo '<td><a href="xulyxoadc.php?diem='.$rowtk['madiem'].'"><img src="images/deleted.jpg" border="0"></a></td></tr>';
             $i++;
         }
     }

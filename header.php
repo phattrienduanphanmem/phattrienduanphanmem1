@@ -98,7 +98,7 @@
             <li>
                 <a>Sinh viên</a>
                 <ul class="sub-menu">
-                  <li><a href="#">Học phí</a></li>
+                  <li><a href="hocphi.php">Học phí</a></li>
                   <li><a href="diemchuan.php">Điểm chuẩn</a></li>
                   <li><a href="#">Tra cứu thông tin</a></li>
                 </ul>

@@ -4,7 +4,7 @@
     $nam =$_POST['nam'];
     $diemchuan =$_POST['diemchuan'];
     $dieukien =$_POST['dieukien'];
-    $matk=$_GET['id'];
+    
     require('connect.php');
     $result = mysqli_query($conn,"Select * from diemchuan where manganh='$manganh' and nam='$nam'");
     $sql = "INSERT INTO diemchuan(diem,dieukien,chitieu,nam,manganh) 
@@ -14,20 +14,20 @@
         if(mysqli_query($conn,$sql)){
             echo '<script language="javascript">';
             echo 'alert("Thêm điểm chuẩn thành công");';
-            echo 'location.href="themdiem.php?id='.$matk.'";';
+            echo 'location.href="themdiem.php";';
             echo '</script>';
         }
         else{
             echo '<script language="javascript">';
             echo 'alert("Thêm điểm chuẩn thất bại");';
-            echo 'location.href="themdiem.php?id='.$matk.'";';
+            echo 'location.href="themdiem.php";';
             echo '</script>';
         }
     }
     else{
         echo '<script language="javascript">';
         echo 'alert("Điểm chuẩn của mã ngành '.$manganh.' trong năm '.$nam.' đã tồn tại");';
-        echo 'location.href="themdiem.php?id='.$matk.'";';
+        echo 'location.href="themdiem.php";';
         echo '</script>';
     }
     mysqli_close($conn);

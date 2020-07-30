@@ -730,6 +730,18 @@ $resulttinh3 = mysqli_query($conn, $sqltinh);
                                 }
                                 });
                             });
+                            $("#tohop").on('change',function(){
+                                var matohop=$(this).val();
+                                $.ajax({
+                                    method:"POST",
+                                    url:"ajax.php",
+                                    data:{idtohop:matohop},
+                                    dataType:"html",
+                                    success:function(data){
+                                    $("#mon1").html(data);
+                                }
+                                });
+                            });
                         });
                     </script>
                     </div>
@@ -749,10 +761,58 @@ $resulttinh3 = mysqli_query($conn, $sqltinh);
                         
                         </select>
                         <script>
-                                function chonnganh(){
-                                    var d=document.getElementById("nganh");
-                                    var idnganh=d.options[d.selectedIndex].value;
-                                    document.getElementById("manganh").value=idnganh;
+                            function chonnganh(){
+                                var d=document.getElementById("nganh");
+                                var idnganh=d.options[d.selectedIndex].value;
+                                document.getElementById("manganh").value=idnganh;
+                            }
+                            function cacmon(){
+                                var a=document.getElementById("tohop");
+                                var idtohop=a.options[a.selectedIndex].value;
+                                var mon1="Điểm trung bình cả năm môn Toán";
+                                var mon2;
+                                var mon3;
+                                switch (idtohop) {
+                                    case '1':
+                                        mon2 = "Điểm trung bình cả năm môn Vật lý";
+                                        mon3 = "Điểm trung bình cả năm môn Hóa Học";
+                                        break;
+                                    case '2':
+                                        mon2 = "Điểm trung bình cả năm môn Vật lý";
+                                        mon3 = "Điểm trung bình cả năm môn Tiếng Anh";
+                                        break;
+                                    case '3':
+                                        mon2 = "Điểm trung bình cả năm môn Vật lý";
+                                        mon3 = "Điểm trung bình cả năm môn Sinh Học";
+                                        break;
+                                    case '4':
+                                        mon2 = "Điểm trung bình cả năm môn Hóa Học";
+                                        mon3 = "Điểm trung bình cả năm môn Sinh Học";
+                                        break;
+                                    case '5':
+                                        mon2 = "Điểm trung bình cả năm môn Ngữ Văn";
+                                        mon3 = "Điểm trung bình cả năm môn Tiếng Anh";
+                                        break;
+                                    case '6':
+                                        mon2 = "Điểm trung bình cả năm môn Hóa Học";
+                                        mon3 = "Điểm trung bình cả năm môn Tiếng Anh";
+                                        break;
+                                    case '7':
+                                        mon2 = "Điểm trung bình cả năm môn Sinh Học";
+                                        mon3 = "Điểm trung bình cả năm môn Tiếng Anh";
+                                        break;
+                                    default:
+                                        break;
+                                }
+                                document.getElementById("10mon1").placeholder=mon1;
+                                document.getElementById("10mon2").placeholder=mon2;
+                                document.getElementById("10mon3").placeholder=mon3;
+                                document.getElementById("11mon1").placeholder=mon1;
+                                document.getElementById("11mon2").placeholder=mon2;
+                                document.getElementById("11mon3").placeholder=mon3;
+                                document.getElementById("12mon1").placeholder=mon1;
+                                document.getElementById("12mon2").placeholder=mon2;
+                                document.getElementById("12mon3").placeholder=mon3;
                             }
                             </script>
                     </div>
@@ -762,7 +822,7 @@ $resulttinh3 = mysqli_query($conn, $sqltinh);
                     </div>
                     <div class="col-sm-4 col-12">
                         <label>Tổ hợp xét tuyển:</label>
-                        <select  class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" name="tohop" id="tohop">
+                        <select  class="form-control" style="width: 100%;" tabindex="-1" aria-hidden="true" name="tohop" id="tohop" onchange="cacmon();">
                         </select>
                     </div>
                 </div>
@@ -770,45 +830,45 @@ $resulttinh3 = mysqli_query($conn, $sqltinh);
                 <div class="row">
                     <div class="col-sm-4 col-12">
                         <label>Lớp 10 :</label><span class="ng-binding"></span>
-                        <input type="number" max="10" class="form-control" id="GPA10_1" placeholder="Điểm trung bình cả năm môn 1 " required="" >
+                        <input type="number" min="0" max="10" class="form-control" id="10mon1" name="10mon1" placeholder="Điểm trung bình cả năm môn 1 " required="" >
                     </div>
                     <div class="col-sm-4 col-12">
                         <label>&nbsp;</label><span  class="ng-binding"></span>
-                        <input type="number" max="10" class="form-control" id="GPA10_2" placeholder="Điểm trung bình cả năm môn 2 " required="" >
+                        <input type="number" min="0" max="10" class="form-control" id="10mon2" name="10mon2" placeholder="Điểm trung bình cả năm môn 2 " required="" >
                     </div>
                     <div class="col-sm-4 col-12">
                         <label>&nbsp;</label><span class="ng-binding"></span>
-                        <input type="number" max="10" class="form-control " id="GPA10_3" placeholder="Điểm trung bình cả năm môn 3 " required="" >
+                        <input type="number" min="0" max="10" class="form-control " id="10mon3" name="10mon3" placeholder="Điểm trung bình cả năm môn 3 " required="" >
                     </div>
                 </div>
                 <!--Điểm lớp 11 THPT-->
                 <div class="row">
                     <div class="col-sm-4 col-12">
                         <label>Lớp 11 :</label><span class="ng-binding"></span>
-                        <input type="number" max="10" class="form-control"  id="GPA11_1" placeholder="Điểm trung bình cả năm môn 1 " required="" >
+                        <input type="number" min="0" max="10" class="form-control"  id="11mon1" name="11mon1" placeholder="Điểm trung bình cả năm môn 1 " required="" >
                     </div>
                     <div class="col-sm-4 col-12">
                         <label>&nbsp;</label><span class="ng-binding"></span>
-                        <input type="number" max="10" class="form-control" id="GPA11_2" placeholder="Điểm trung bình cả năm môn 2 " required="" >
+                        <input type="number" min="0"max="10" class="form-control" id="11mon2" name="11mon2" placeholder="Điểm trung bình cả năm môn 2 " required="" >
                     </div>
                     <div class="col-sm-4 col-12">
                         <label>&nbsp;</label><span class="ng-binding"></span>
-                        <input type="number" min="0" max="10" class="form-control" id="GPA11_3" placeholder="Điểm trung bình cả năm môn 3 " required="" >
+                        <input type="number" min="0" max="10" class="form-control" id="11mon3" name="11mon3" placeholder="Điểm trung bình cả năm môn 3 " required="" >
                     </div>
                 </div>
                 <!--Điểm lớp 12 THPT-->
                 <div class="row">
                     <div class="col-sm-4 col-12">
                         <label>Lớp 12 :</label><span class="ng-binding"></span>
-                        <input type="number" max="10" class="form-control "id="GPA12_1" placeholder="Điểm trung bình cả năm môn 1 " required="">
+                        <input type="number" min="0" max="10" class="form-control" id="12mon1" name="12mon1" placeholder="Điểm trung bình cả năm môn 1 " required="">
                     </div>
                     <div class="col-sm-4 col-12">
                         <label>&nbsp;</label><span class="ng-binding"></span>
-                        <input type="number" max="10" class="form-control " id="GPA12_2" placeholder="Điểm trung bình cả năm môn 2 " required="" >
+                        <input type="number" min="0" max="10" class="form-control " id="12mon2" name="12mon2" placeholder="Điểm trung bình cả năm môn 2 " required="" >
                     </div>
                     <div class="col-sm-4 col-12">
                         <label>&nbsp;</label><span class="ng-binding"></span>
-                        <input type="number" max="10" class="form-control " id="GPA12_3" placeholder="Điểm trung bình cả năm môn 3 " required="">
+                        <input type="number" min="0" max="10" class="form-control " id="12mon3" name="12mon3" placeholder="Điểm trung bình cả năm môn 3 " required="">
                     </div>
                 </div>
                 <div class="row">

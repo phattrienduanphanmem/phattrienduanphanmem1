@@ -1,10 +1,12 @@
 <?php
+session_start();
+if(empty($_SESSION['matk'])){ header('Location: login.php');}
 include("head.php");
-$matk=$_GET['id'];
+$matk=$_SESSION['matk'];
 $madiem=$_GET['diem'];
 require('connect.php');
 $row = mysqli_fetch_assoc(mysqli_query($conn, "Select * from taikhoan where matk = '$matk'"));
-$maquyen = $row['maquyen'];
+
 ?>
 <body id="page-top">
     <div id="wrapper">
@@ -14,11 +16,11 @@ $maquyen = $row['maquyen'];
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
                         <nav class="navbar navbar-light navbar-expand-md">
-                            <div class="container-fluid"><a class="navbar-brand" href="qldiemchuan.php?id=<?php echo $matk?>">Điểm chuẩn</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-2"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                            <div class="container-fluid"><a class="navbar-brand" href="qldiemchuan.php">Điểm chuẩn</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-2"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                                 <div class="collapse navbar-collapse"
                                     id="navcol-2">
                                     <ul class="nav navbar-nav">
-                                        <li class="nav-item" role="presentation"><a class="nav-link active" href="themdiem.php?id=<?php echo $matk?>">Thêm điểm chuẩn</a></li>
+                                        <li class="nav-item" role="presentation"><a class="nav-link active" href="themdiem.php">Thêm điểm chuẩn</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -26,14 +28,14 @@ $maquyen = $row['maquyen'];
                         <ul class="nav navbar-nav flex-nowrap ml-auto">
                             <li class="nav-item dropdown no-arrow" role="presentation">
                                 <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small"><?php echo $row['tentk']?></span><img class="border rounded-circle img-profile" src="images/avatar5.jpeg"></a>
-                                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="hoso.php?id=<?php echo $row['matk']?>"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
+                                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="hoso.php"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
                                     <div class="dropdown-divider"></div><a class="dropdown-item" role="presentation" href="login.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a></div>
                                 </div>
                             </li>
                         </ul>
             </div>
             </nav>
-            <form class="form-register" method="POST" action="xulysuadc.php?id=<?php echo $matk?>&diem=<?php echo $madiem?>">
+            <form class="form-register" method="POST" action="xulysuadc.php?diem=<?php echo $madiem?>">
                 <div class="container-fluid">
                     <?php
                     $rowdiem = mysqli_fetch_assoc(mysqli_query($conn, "Select * from diemchuan where madiem = '$madiem'"));
