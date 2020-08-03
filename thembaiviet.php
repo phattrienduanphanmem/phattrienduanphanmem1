@@ -47,9 +47,9 @@ $row = mysqli_fetch_assoc(mysqli_query($conn, $sql));
                     <h6 style="color: rgb(0,0,0);">Tiêu đề bài viết</h6><input class="form-control" id="tieude"name="tieude" type="text" required autofocus>
                     <input type="file" name="image" id="image" class="form-control " style="margin-top:20px" required autofocus>
                     <h6 style="color: rgb(0,0,0);">Tóm tắt</h6>
-                    <input class="form-control" id="tomtat" name="tomtat" type="text" required autofocus>
+                    <input class="form-control" id="tomtat" name="tomtat" type="text">
                     <h6 style="color: rgb(0,0,0);">Nội dung</h6>
-                    <textarea name="noidung" id="noidung" rows="10" cols="150"></textarea>
+                    <textarea name="noidung" id="noidung" rows="20" cols="150" required autofocus></textarea>
                 <hr><button class="btn btn-primary" type="submit"id="newpost" name="newpost">Tạo bài viết</button></div>
             </form>
         </div>

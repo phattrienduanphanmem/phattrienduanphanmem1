@@ -25,7 +25,7 @@ $result = mysqli_fetch_assoc(mysqli_query($conn, $sql));
                 </div>
                 <div class="col-md-8 col-lg-9 col-main">
                     <div class="col-md-12" style="border: 1px solid #ff6e00;">
-                        <h1 style="padding: 10px 0px;"><?php echo $result['tieude']; ?></h1>
+                        <h1 style="text-align:center; padding: 10px 0px;"><?php echo $result['tieude']; ?></h1>
                         <p style="padding: 15px 0px; font-size:15px"><?php echo $result['ngaytao'];?></p>
                         <p><?php echo $result['noidung'];?></p>
                     </div>

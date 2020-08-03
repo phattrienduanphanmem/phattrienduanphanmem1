@@ -8,7 +8,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS --> 
+    <link rel="stylesheet" href="webfonts/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css" >
     <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="style.css">
@@ -89,7 +90,7 @@
                 <ul class="sub-menu">
                   <?php
                   include("connect.php");
-                  $result=mysqli_query($conn, "select * from nganh");
+                  $result=mysqli_query($conn, "select * from nganh where macoso='1'");
                   while($row = mysqli_fetch_array($result)){
                       echo '<li><a href="nganhdaotao.php?id='.$row['manganh'].'">' .$row['tennganh']. '</a></li>';
                   }

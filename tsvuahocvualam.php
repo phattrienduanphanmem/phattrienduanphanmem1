@@ -1,9 +1,8 @@
 <?php
 include("header.php");
 require('connect.php');
-$result = mysqli_fetch_assoc(mysqli_query($conn, "Select * from baiviet where chude = 'Tuyển sinh liên thông'"));
+$result = mysqli_fetch_assoc(mysqli_query($conn, "Select * from baiviet where chude = 'Tuyển sinh vừa làm vừa học'"));
 ?>
-
 <main class="main-content">
   <div class="container">
     <div style="margin-top:70px"></div>

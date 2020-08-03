@@ -17,7 +17,9 @@ if(empty($_SESSION['matk'])){ header('Location: login.php');}
         case 'tb':
             $chude='Thông báo';
             break;
-            
+        default:
+            $chude=$rowpost['chude'];
+            break;
     }
     if(empty($_FILES['image']['name'])){
         if($rowpost['chude']==$chude&$rowpost['tieude']==$tieude&$rowpost['noidung']==$noidung&$rowpost['tomtat']==$tomtat){
