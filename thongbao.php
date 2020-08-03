@@ -35,18 +35,18 @@ include("header.php");
                             <div class="row">
                                 <div class="col-sm-3">
                                     <figure class="figure">
-                                        <a href="#">
+                                        <a href="chitiettin.php?<?php echo "idtin=".$row['mabv']?>">
                                             <img class="img-responsive" alt="Image" src="<?php echo $row['anh']; ?>">
                                         </a>
                                     </figure>
                                 </div>
                                 <div class="col-sm-9" style="text-align:justify">
                                     <h3 class="related-title">
-                                        <a href="#" class="ng-binding"><?php echo $row['tieude'] ?></a>
+                                        <a href="chitiettin.php?<?php echo "idtin=".$row['mabv']?>" class="ng-binding"><?php echo $row['tieude'] ?></a>
                                     </h3>
                                     <p class="time-post ng-binding" ng-bind="item.PublishTime | date:'dd/MM/yyyy HH:mm'" style="font-size:12px"><?php echo $row['ngaytao']; ?></p>
-                                    <p ng-bind-html="item.Description" class="ng-binding"><?= $row['noidung']; ?></p>
-                                    <p class="text-right font-16px"><a href="#!"><i class="fa fa-angle-right"></i> <em>Xem chi tiết</em></a></p>
+                                    <p ng-bind-html="item.Description" class="ng-binding"><?= $row['tomtat']; ?></p>
+                                    <p class="text-right font-16px"><a href="chitiettin.php?<?php echo "idtin=".$row['mabv']?>"><i class="fa fa-angle-right"></i> <em>Xem chi tiết</em></a></p>
                                 </div>
                             </div>
                         </li>

@@ -16,8 +16,10 @@
                 echo '</script>';
             }
             else{
+                $_SESSION['matk']=$row['matk'];
+                $_SESSION['quyen']=$row['maquyen'];
                 echo '<script language="javascript">';
-                echo 'location.href="kichhoat.php?id='.$row['matk'].'";';
+                echo 'location.href="kichhoat.php";';
                 echo '</script>';
             }
         }

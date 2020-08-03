@@ -1,9 +1,20 @@
 <?php
 include("header.php");
 ?>
-<div style="margin-top:70px"></div>
+<style>
+   label.error{
+    color : red;
+    font-size : 12px;
+}
+.error{
+    font-size : 15px;
+    width : 100%
+}
+</style>
+<div style="margin-top:70px">
+</div>
 <div class="container">
-        <form action="" method="post" id="question">
+<form action="" method="post" id="question">
             <div class="form-question form-custom section-library-bgimg"
                 style="margin-bottom:30px;padding-bottom:20px;padding-top:20px">
                 <p class="divHead hidden ng-binding"></p>
@@ -111,7 +122,7 @@ include("header.php");
                             <tbody>
                                 <tr>
                                     <td style="text-align:center">
-                                        <button type="submit" class="btn btn btn-primary btn-custom">Gửi câu
+                                        <button type="submit" id="submit" class="btn btn btn-primary btn-custom">Gửi câu
                                             hỏi</button>
                                     </td>
                                 </tr>
@@ -128,63 +139,94 @@ include("header.php");
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script type="text/javascript">
+    
 $(document).ready(function(){
+    var jQuery_1_7_0 = $.noConflict(true);
     $.validator.addMethod("valueNotEquals", function(value, element, arg){
-  return arg !== value;
- }, "Value must not equal arg.");
-    $("#question").validate({
-        rules : {
-            PostUser : {
-                required : true,
+      return arg !== value;
+     }, "Value must not equal arg.");
+        $("#question").validate({
+            rules : {
+                PostUser : {
+                    required : true,
+                },
+                PostTitle : {
+                    required : true,
+                },
+                PostContent : {
+                    required : true,
+      
+                },
+                PostUserAddress : {
+                  required : true,
+                  minlength : 10
+                },
+                PostUserTel : {
+                    required: true,
+                    minlength: 10,
+                    maxlength : 10,
+                    digits : true
+    
+                },
+                PostUserMail : {
+                    required: true,
+                    email: true
+                },
+                select :  { valueNotEquals: "" }
             },
-            PostTitle : {
-                required : true,
-            },
-            PostContent : {
-                required : true,
-                minlength : 100
-            },
-            PostUserTel : {
-                required: true,
-                minlength: 10,
-                maxlength : 10,
-                digits : true
-
-            },
-            PostUserMail : {
-                required: true,
-                email: true
-            },
-            select :  { valueNotEquals: "" }
-
-        },
-        messages :{
-            select: { valueNotEquals: "Chưa chọn ngành" },
-            PostUser : {
-                required : "Chưa nhập họ tên"
-            },
-            PostTitle : {
-                required : "Chưa nhập tiêu đề hỏi",
-            },
-            PostContent : {
-                required : "Chưa nhập câu hỏi",
-                minlength : "Câu hỏi quá ngắn"
-            },
-            PostUserTel : {
-                required : "Chưa nhập số điện thoại",
-                minlength : "Số điện thoại không đúng quy định",
-                maxlength : "Số điện thoại không đúng quy định",
-                digits : "Số điện thoại không đúng quy định"
-            },
-            PostUserMail : {
-                required : "Chưa nhập email",
-                email : "Sai email hoặc không đúng định dạng"
+            messages :{
+                select: { valueNotEquals: "Chưa chọn ngành" },
+                PostUser : {
+                    required : "Chưa nhập họ tên"
+                },
+                PostUserTel : {
+                    required : "Chưa nhập số điện thoại",
+                    minlength : "Số điện thoại không đúng quy định",
+                    maxlength : "Số điện thoại không đúng quy định",
+                    digits : "Số điện thoại không đúng quy định"
+                },
+                PostUserAddress : "Chưa nhập địa chỉ",
+                PostTitle : {
+                    required : "Chưa nhập tiêu đề hỏi",
+                },
+                PostContent : {
+                    required : "Chưa nhập câu hỏi",
+      
+                    },
+    
+                PostUserMail : {
+                    required : "Chưa nhập email",
+                    email : "Sai email hoặc không đúng định dạng"
+                }
+    
+    
             }
-
-
-        }
+        });
+        $('#question').submit(function(e) {
+          e.preventDefault();
+            if ($("#question").valid() == false) {
+              return false
+            } else {
+              console.log($(this).serialize());
+              $.ajax({
+                type: "POST",
+                url : "./lib/sendmail.php",
+                data : $("#question").serialize(),
+                success : function(data){
+                  setTimeout(function(){ 
+                      $('#submit').css({
+                       "display": "none"
+                      });
+                      alert("gửi email thành công");
+                      $('#question').trigger("reset");
+                    },2000);
+                 
+              },
+              error:function(){}
+              })
+      }		
     })
-})
+    })
 </script>
 <?php
 include("footer.php");

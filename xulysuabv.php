@@ -5,6 +5,7 @@ if(empty($_SESSION['matk'])){ header('Location: login.php');}
     $tieude =$_POST['tieude'];
     $noidung =$_POST['noidung'];
     $matk=$_SESSION['matk'];
+    $tomtat=$_POST['tomtat'];
     $mabv=$_GET['post'];
     require('connect.php');
     $sqlpost = "Select * from baiviet where mabv = '$mabv'";
@@ -19,14 +20,14 @@ if(empty($_SESSION['matk'])){ header('Location: login.php');}
             
     }
     if(empty($_FILES['image']['name'])){
-        if($rowpost['chude']==$chude&$rowpost['tieude']==$tieude&$rowpost['noidung']==$noidung){
+        if($rowpost['chude']==$chude&$rowpost['tieude']==$tieude&$rowpost['noidung']==$noidung&$rowpost['tomtat']==$tomtat){
         echo '<script language="javascript">';
         echo 'alert("Bài viết không có sự thay đổi nào");';
         echo 'location.href="Post.php";';
         echo '</script>';
         }
         else{
-            $sql = "UPDATE baiviet set  chude='$chude', tieude='$tieude',noidung='$noidung',ngaytao=NOW() where mabv='$mabv';";
+            $sql = "UPDATE baiviet set  chude='$chude', tieude='$tieude',noidung='$noidung',tomtat='$tomtat',ngaytao=NOW() where mabv='$mabv';";
             mysqli_set_charset($conn,'UTF8');
             if(mysqli_query($conn,$sql)){
                 echo '<script language="javascript">';
@@ -59,7 +60,7 @@ if(empty($_SESSION['matk'])){ header('Location: login.php');}
     }
     if(empty($error)){
         $xoa=unlink($rowpost['anh']);
-        $sql = "UPDATE baiviet set  chude='$chude', tieude='$tieude',anh='$target_file',noidung='$noidung',ngaytao=NOW() where mabv='$mabv';";
+        $sql = "UPDATE baiviet set  chude='$chude', tieude='$tieude',anh='$target_file',noidung='$noidung',tomtat='$tomtat',ngaytao=NOW() where mabv='$mabv';";
         mysqli_set_charset($conn,'UTF8');
         if($xoa){
             if(move_uploaded_file($_FILES['image']['tmp_name'],$target_file)){

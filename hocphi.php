@@ -16,6 +16,42 @@ include("header.php");
                     <h4><strong>I.Nguyên tắc chung</strong></h4>
                     <p style="margin-left:10px">Mức thu học phí lần đầu và học lại không vượt quá trần học phí quy định tại nghị định số 86/2015/ND-CP ngày ngày 02 tháng 10 năm 2015 của Chính Phủ</p>
                     <h4 style="margin-bottom:20px"><strong>II.Quy định về mức học phí:</strong></h4>
+                    <table class="table table-striped table-bordered" width="100%" style="border:2px solid #000000; color:black">
+                    <th>STT</th>
+                        <th>Đối tượng đào tạo</th>
+                        <th>Mức thu theo kỳ (đồng/kỳ)</th>
+                        <th>Mức thu theo tín chỉ(đồng/tín chỉ)</th>
+                        <tbody style="border-top:2px solid #000000">
+                            <tr><td style="font-weight: 700;">1</td><td style="font-weight: 700;">Hệ dự bị đại học</td><td>4.500.000000</td><td></td></tr>
+                            <tr style="font-weight: 700;"><td>2</td><td colspan="3" >Hệ cao đẳng, đại học chính quy</td></tr>
+                            <tr style="font-weight: 600;font-style: italic;" ><td>2.1</td><td colspan="3" >Khối ngành kỹ thuật, công nghệ thông tin</td></tr>
+                            <tr><td>2.1.1</td><td>Hệ đại học chính quy</td><td></td><td></td></tr>
+                            <tr><td>2.1.1.1</td><td>Khối ngành kỹ thuật, công nghệ thông tin</td><td></td><td>305.000</td></tr>
+                            <tr><td>2.1.1.2</td><td>Ngành hệ thống thông tin. kỹ thuật phần mềm</td><td></td><td>285.000</td></tr>
+                            <tr><td>2.1.2</td><td></td><td></td><td></td></tr>
+                            <tr><td>2.1.3</td><td></td><td></td><td></td></tr>
+                            <tr><td>2.1.4</td><td></td><td></td><td></td></tr>
+                            <tr><td>2.1.5</td><td></td><td></td><td></td></tr>
+                            <tr style="font-weight: 600;font-style: italic;" ><td>2.2</td><td></td><td></td><td></td></tr>
+                            <tr><td>2.2.1</td><td></td><td></td><td></td></tr>
+                            <tr><td>2.2.2</td><td></td><td></td><td></td></tr>
+                            <tr><td>2.2.3</td><td></td><td></td><td></td></tr>
+                            <tr style="font-weight: 700;"><td>3</td><td colspan="3" ></td></tr>
+                            <tr style="font-weight: 600;font-style: italic;" ><td>3.1</td><td></td><td></td><td></td></tr>
+                            <tr><td>3.1.1</td><td></td><td></td><td></td></tr>
+                            <tr><td>3.1.2</td><td></td><td></td><td></td></tr>
+                            <tr style="font-weight: 600;font-style: italic;" ><td>3.2</td><td></td><td></td><td></td></tr>
+                            <tr style="font-weight: 700;"><td>4</td><td colspan="3" ></td></tr>
+                            <tr style="font-weight: 600;font-style: italic;" ><td>4.1</td><td></td><td></td><td></td></tr>
+                            <tr style="font-weight: 600;font-style: italic;" ><td>4.2</td><td></td><td></td><td></td></tr>
+                            <tr style="font-weight: 700;"><td>5</td><td colspan="3" ></td></tr>
+                            <tr style="font-weight: 600;font-style: italic;" ><td>5.1</td><td></td><td></td><td></td></tr>
+                            <tr style="font-weight: 600;font-style: italic;" ><td>5.2</td><td></td><td></td><td></td></tr>
+                            <tr><td></td><td colspan="3" style="font-weight: 700;"></td></tr>
+                            <tr style="font-weight: 700;"><td>6</td><td colspan="3" ></td></tr>
+                            <tr><td></td><td></td><td></td><td></td></tr>
+                        </tbody>
+                    </table>
                     </div>
                 </div>
 

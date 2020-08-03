@@ -1020,3 +1020,6 @@ body {
 }
 .tab{width:100%;display:none;padding:1rem;background:#fafafa;border:2px solid #90CAF9}
 .tab.active{display:block}
+.table-bordered td, .table-bordered th{
+ border: 1px solid #000000;
+}

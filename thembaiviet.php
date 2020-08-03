@@ -46,7 +46,10 @@ $row = mysqli_fetch_assoc(mysqli_query($conn, $sql));
                     </select>
                     <h6 style="color: rgb(0,0,0);">Tiêu đề bài viết</h6><input class="form-control" id="tieude"name="tieude" type="text" required autofocus>
                     <input type="file" name="image" id="image" class="form-control " style="margin-top:20px" required autofocus>
-                    <h6 style="color: rgb(0,0,0);">Nội dung</h6><input class="form-control" id="noidung" name="noidung" type="text" required autofocus>
+                    <h6 style="color: rgb(0,0,0);">Tóm tắt</h6>
+                    <input class="form-control" id="tomtat" name="tomtat" type="text" required autofocus>
+                    <h6 style="color: rgb(0,0,0);">Nội dung</h6>
+                    <textarea name="noidung" id="noidung" rows="10" cols="150"></textarea>
                 <hr><button class="btn btn-primary" type="submit"id="newpost" name="newpost">Tạo bài viết</button></div>
             </form>
         </div>
@@ -62,3 +65,8 @@ $row = mysqli_fetch_assoc(mysqli_query($conn, $sql));
 <?php
 include("foot.php");
 ?>
+<script src="./ckeditor/ckeditor.js"></script>
+<script>
+    // Thay thế <textarea id="post_content"> với CKEditor
+    CKEDITOR.replace( 'noidung' );// tham số là biến name của textarea
+</script>

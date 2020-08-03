@@ -66,7 +66,9 @@ Switch($rowpost['chude']){
                         <input type="file" name="image" id="image" class="form-control " style="margin-top:20px">
                         </div>
                     </div>
-                    <h6 style="color: rgb(0,0,0);">Nội dung</h6><input class="form-control" id="noidung" name="noidung" type="text" required value="<?php echo $rowpost['noidung'] ?>">
+                    <h6 style="color: rgb(0,0,0);">Tóm tắt</h6><input class="form-control" id="tomtat" name="tomtat" type="text" required value="<?php echo $rowpost['tomtat'] ?>">
+                    <h6 style="color: rgb(0,0,0);">Nội dung</h6>
+                    <textarea name="noidung" id="noidung" rows="10" cols="150"><?php echo $rowpost['noidung'] ?></textarea>
                 <hr><div><button class="btn btn-primary" type="submit"id="newpost" name="newpost">Sửa bài viết</button>
                 <button class="btn btn-primary" type="button"><a class= "a_back" href="Post.php">Thoát</a></button></div>
             </div>
@@ -84,3 +86,8 @@ Switch($rowpost['chude']){
 <?php
 include("foot.php");
 ?>
+<script src="./ckeditor/ckeditor.js"></script>
+<script>
+    // Thay thế <textarea id="post_content"> với CKEditor
+    CKEDITOR.replace( 'noidung' );// tham số là biến name của textarea
+</script>

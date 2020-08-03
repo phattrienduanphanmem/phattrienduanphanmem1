@@ -1,9 +1,8 @@
 <?php
-session_start();
-if(empty($_SESSION['matk'])){ header('Location: login.php');}
+
     $taikhoan=$_POST['taikhoan'];
     $quyen =$_POST['quyen'];
-    $matk=$_SESSION['matk'];
+    
     require('connect.php');
     Switch($quyen){
         case 'admin':

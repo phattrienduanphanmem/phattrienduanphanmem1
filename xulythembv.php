@@ -1,7 +1,9 @@
 <?php
+session_start();
     $namechude=$_POST['chude'];
     $tieude =$_POST['tieude'];
     $noidung =$_POST['noidung'];
+    $tomtat=$_POST['tomtat'];
     $matk=$_SESSION['matk'];
     require('connect.php');
     Switch($namechude){
@@ -27,34 +29,34 @@
         $error['image']="File đã tồn tài trên hệ thống";
     }
     if(empty($error)){
-        $sql = "INSERT INTO baiviet(chude,tieude,anh,noidung,ngaytao,matk) 
-        values ('$chude','$tieude','$target_file','$noidung',NOW(),'$matk');";
+        $sql = "INSERT INTO baiviet(chude,tieude,anh,noidung,ngaytao,matk,tomtat) 
+        values ('$chude','$tieude','$target_file','$noidung',NOW(),'$matk','$tomtat');";
         mysqli_set_charset($conn,'UTF8');
         if(move_uploaded_file($_FILES['image']['tmp_name'],$target_file)){
             if(mysqli_query($conn,$sql)){
                 echo '<script language="javascript">';
                 echo 'alert("Tạo bài viết thành công");';
-                echo 'location.href="thembaiviet.php";';
+                echo 'location.href="thembaiviet.php?id='.$matk.'";';
                 echo '</script>';
             }
             else{
                 echo '<script language="javascript">';
                 echo 'alert("Tạo bài viết thất bại");';
-                echo 'location.href="thembaiviet.php";';
+                echo 'location.href="thembaiviet.php?id='.$matk.'";';
                 echo '</script>';
             };
         }
         else{
             echo '<script language="javascript">';
             echo 'alert("Up ảnh thất bại");';
-            echo 'location.href="thembaiviet.php";';
+            echo 'location.href="thembaiviet.php?id='.$matk.'";';
             echo '</script>';
         }
     }
     else{
         echo '<script language="javascript">';
         echo 'alert("'.$error['image'].'");';
-        echo 'location.href="thembaiviet.php";';
+        echo 'location.href="thembaiviet.php?id='.$matk.'";';
         echo '</script>';
     }
     mysqli_close($conn);

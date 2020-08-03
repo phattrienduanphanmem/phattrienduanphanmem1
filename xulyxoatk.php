@@ -18,7 +18,7 @@
     }
     else{
         echo '<script language="javascript">';
-        echo 'alert("hãy chọn tài khoản và quyền được cấp");';
+        echo 'alert("hãy chọn tài khoản xóa");';
         echo 'location.href="xoataikhoan.php"</script>';
     }
     mysqli_close($conn);

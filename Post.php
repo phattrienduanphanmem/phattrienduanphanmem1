@@ -49,7 +49,7 @@ $resultpost = mysqli_query($conn, $sqlpost);
                         <th width="80px">Mã bài viết</th>
                         <th width="200px">Tiêu đề</th>
                         <th width="150px">Ảnh</th>
-                        <th width="400px">Nội dung</th>
+                        <th width="400px">Tóm tắt</th>
                         <th width="193px">Ngày tạo</th>
                     </tr>
                 </thead>
@@ -62,7 +62,7 @@ $resultpost = mysqli_query($conn, $sqlpost);
                     echo '<td>'.$rowpost['mabv'].'</td>';
                     echo '<td>'.$rowpost['tieude'].'</td>';
                     echo '<td><img src="'.$rowpost['anh'].'" width="150px" height="150px"></td>';
-                    echo '<td>'.$rowpost['noidung'].'</td>';
+                    echo '<td>'.$rowpost['tomtat'].'</td>';
                     echo '<td>'.$rowpost['ngaytao'].'</td></tr>';
                   }
                 }

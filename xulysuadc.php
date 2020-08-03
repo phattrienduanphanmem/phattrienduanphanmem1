@@ -1,10 +1,9 @@
 <?php
-session_start();
-if(empty($_SESSION['matk'])){ header('Location: login.php');}
+
     $chitieu=$_POST['chitieu'];
     $diemchuan =$_POST['diemchuan'];
     $dieukien =$_POST['dieukien'];
-    $matk=$_SESSION['matk'];
+
     $madiem=$_GET['diem'];
     require('connect.php');
     $rowdiem = mysqli_fetch_assoc(mysqli_query($conn, "Select * from diemchuan where madiem = '$madiem'"));

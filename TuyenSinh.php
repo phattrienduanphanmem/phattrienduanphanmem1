@@ -21,10 +21,10 @@ $row = mysqli_fetch_assoc(mysqli_query($conn, $sql));
                                 <div
                                     class="collapse navbar-collapse" id="navcol-2">
                                     <ul class="nav navbar-nav">
-                                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Thêm đơn</a></li>
-                                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Quản lý đơn</a></li>
-                                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Tính điểm sàn</a></li>
-                                        <li class="nav-item" role="presentation"></li>
+                                        <li class="nav-item" role="presentation"><a class="nav-link" href="TuyenSinh.php">Đơn chưa duyệt</a></li>
+                                        <li class="nav-item" role="presentation"><a class="nav-link active" href="QuanLyDonDaDuyet.php">Đơn đã xét duyệt</a></li>
+                                        <li class="nav-item" role="presentation"><a class="nav-link" href="QuanLyDiem.php">Quản lý điểm</a></li>
+                                        <li class="nav-item" role="presentation"><a class="nav-link" href="QuanLyDonLoaiBo.php">Đơn loại bỏ</a></li>
                                     </ul>
                             </div>
                     </div>
@@ -39,7 +39,47 @@ $row = mysqli_fetch_assoc(mysqli_query($conn, $sql));
                         </ul>
         </div>
         </nav>
-        <div class="container-fluid"></div>
+        <div class="container">
+            <div class="table-responsive table-bordered table table-hover table-bordered results">
+                <table class="table table-bordered table-hover">
+                    <thead class="bill-header cs">
+                        <tr>
+                            <th id="trs-hd" width="5%">Stt</th>
+                            <th id="trs-hd" width="10%">ID Thí sinh</th>
+                            <th id="trs-hd" width="20%">Họ tên thí sinh</th>
+                            <th id="trs-hd" width="15%">Ngày nộp đơn</th>
+                            <th id="trs-hd" width="5%">Mã QR</th>
+                            <th id="trs-hd" width="15%">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>1977</td>
+                            <td>Ông Giáo</td>
+                            <td>15-07-2020<br></td>
+                            <td class="d-xl-flex justify-content-xl-center"><img src="assets/img/qrcode.png" style="max-width: 100px;max-height: 100px;"></td>
+                            <td class="text-center"><a class="btn btn-success" role="button" style="margin-left: 5px;" href="#"><i class="fa fa-folder-open-o" style="font-size: 15px;"></i></a><a class="btn btn-success" role="button" style="margin-left: 5px;" href="#"><i class="fa fa-check-square-o" style="font-size: 15px;"></i></a>
+                                <button
+                                    class="btn btn-danger" style="margin-left: 5px;" type="submit"><i class="fa fa-trash" style="font-size: 15px;"></i></button>
+                                    <p>Nút mở đơn thí sinh, nút chuyển trạng thái xét duyệt và nút chuyển thùng rác</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>7791</td>
+                            <td>Cậu Vàng</td>
+                            <td>15-07-2020<br></td>
+                            <td class="d-xl-flex justify-content-xl-center"><img src="assets/img/qrcode.png" style="max-width: 100px;max-height: 100px;"></td>
+                            <td class="text-center"><a class="btn btn-success" role="button" style="margin-left: 5px;" href="#"><i class="fa fa-folder-open-o" style="font-size: 15px;"></i></a><a class="btn btn-success" role="button" style="margin-left: 5px;" href="#"><i class="fa fa-check-square-o" style="font-size: 15px;"></i></a>
+                                <button
+                                    class="btn btn-danger" style="margin-left: 5px;" type="submit"><i class="fa fa-trash" style="font-size: 15px;"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
     <footer class="bg-white sticky-footer">
         <div class="container my-auto">
