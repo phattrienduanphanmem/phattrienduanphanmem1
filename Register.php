@@ -31,7 +31,7 @@ $row = mysqli_fetch_assoc(mysqli_query($conn, $sql));
                         <ul class="nav navbar-nav flex-nowrap ml-auto">
                             <li class="nav-item dropdown no-arrow" role="presentation">
                                 <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small"><?php echo $row['tentk']?></span><img class="border rounded-circle img-profile" src="images/avatar5.jpeg"></a>
-                                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="hoso.php?id=<?php echo $row['matk']?>"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
+                                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="hoso.php"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
                                     <div class="dropdown-divider"></div><a class="dropdown-item" role="presentation" href="logout.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a></div>
                                 </div>
                             </li>
@@ -43,7 +43,7 @@ $row = mysqli_fetch_assoc(mysqli_query($conn, $sql));
                     <h6 style="color: rgb(0,0,0);">Tài khoản</h6><input class="form-control" id="tentk"name="tentk" type="text" required autofocus>
                     <h6 style="color: rgb(0,0,0);">Email</h6><input class="form-control" id="email"name="email" type="email" required autofocus>
                     <h6 style="color: rgb(0,0,0);">Password</h6><input class="form-control" id="matkhau"name="matkhau" type="password" required>
-                <hr><button class="btn btn-primary" type="submit"id="taotk" name="taotk" style="width: 123px;">Tạo tài khoản</button></div>
+                <hr><button class="btn btn-primary" type="submit"id="taotk" name="taotk" style="width: 125px;">Tạo tài khoản</button></div>
             </form>
 
             </div>

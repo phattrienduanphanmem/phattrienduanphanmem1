@@ -1022,4 +1022,5 @@ body {
 .tab.active{display:block}
 .table-bordered td, .table-bordered th{
  border: 1px solid #000000;
+ border-bottom: 1px solid #000000;
 }

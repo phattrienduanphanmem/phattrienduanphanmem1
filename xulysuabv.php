@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(empty($_SESSION['matk'])){ header('Location: login.php');}
-    $namechude=$_POST['chude'];
+    $chude=$_POST['chude'];
     $tieude =$_POST['tieude'];
     $noidung =$_POST['noidung'];
     $matk=$_SESSION['matk'];
@@ -10,17 +10,6 @@ if(empty($_SESSION['matk'])){ header('Location: login.php');}
     require('connect.php');
     $sqlpost = "Select * from baiviet where mabv = '$mabv'";
     $rowpost = mysqli_fetch_assoc(mysqli_query($conn, $sqlpost));
-    Switch($namechude){
-        case 'tt':
-            $chude='Tin tức';
-            break;
-        case 'tb':
-            $chude='Thông báo';
-            break;
-        default:
-            $chude=$rowpost['chude'];
-            break;
-    }
     if(empty($_FILES['image']['name'])){
         if($rowpost['chude']==$chude&$rowpost['tieude']==$tieude&$rowpost['noidung']==$noidung&$rowpost['tomtat']==$tomtat){
         echo '<script language="javascript">';

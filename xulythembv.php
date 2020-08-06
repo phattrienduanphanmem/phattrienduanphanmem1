@@ -1,19 +1,11 @@
 <?php
 session_start();
-    $namechude=$_POST['chude'];
+    $chude=$_POST['chude'];
     $tieude =$_POST['tieude'];
     $noidung =$_POST['noidung'];
     $tomtat=$_POST['tomtat'];
     $matk=$_SESSION['matk'];
     require('connect.php');
-    Switch($namechude){
-        case 'tt':
-            $chude='Tin tức';
-            break;
-        case 'tb':
-            $chude='Thông báo';
-            break;
-    }
     $error =array();
     $target_dir="images/images_post/";
     $target_file=$target_dir.basename($_FILES['image']['name']);

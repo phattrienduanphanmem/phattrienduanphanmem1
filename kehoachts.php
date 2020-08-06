@@ -9,12 +9,12 @@ include("header.php");
                 <?php include("menuctdt.php");?>
                 <div class="col-md-8 col-lg-9 col-main">
                     <div class="heading1">
-                        <h3 class="title typescale-1">Kế hoạch đào tạo đại học chính quy</h3>
+                        <h3 class="title typescale-1">Kế hoạch đào tạo tiến sĩ</h3>
                     </div>
                     <ul class="related-list" stype="list-style:none">
                     <?php
                         require('connect.php');
-                        $sql = "Select * from baiviet where chude = 'Kế hoạch đào tạo đại học chính quy'";
+                        $sql = "Select * from baiviet where chude = 'Kế hoạch đào tạo tiến sĩ'";
                         $result = mysqli_query($conn, $sql);
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {

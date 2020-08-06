@@ -85,5 +85,23 @@
             echo '<option value="'.$row['matohop'].'" >' .$row['tentohop']. '</option>';
         }
     }
+    if(isset($_POST['idchude'])){
+        $chude=$_POST['idchude'];
+        if($chude=="all"){
+            $resultpost=mysqli_query($conn, "select * from baiviet");
+        }
+        else {
+            $resultpost=mysqli_query($conn, "select * from baiviet where chude='$chude'");
+        }
+        while ($rowpost = mysqli_fetch_assoc($resultpost)) {
+            echo '<tr><td><a href="suabv.php?post='.$rowpost['mabv'].'"><img src="images/edit.gif" border="0"></a></td>';
+            echo '<td><a href="xulyxoabv.php?post='.$rowpost['mabv'].'"><img src="images/deleted.jpg" border="0"></a></td>';
+            echo '<td>'.$rowpost['mabv'].'</td>';
+            echo '<td>'.$rowpost['tieude'].'</td>';
+            echo '<td><img src="'.$rowpost['anh'].'" width="150px" height="150px"></td>';
+            echo '<td>'.$rowpost['tomtat'].'</td>';
+            echo '<td>'.$rowpost['ngaytao'].'</td></tr>';
+          }
+    }
     mysqli_close($conn);
 ?>

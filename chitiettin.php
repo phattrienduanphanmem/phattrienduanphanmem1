@@ -10,6 +10,8 @@ $result = mysqli_fetch_assoc(mysqli_query($conn, $sql));
         <div style="margin-top:70px"></div>
         <div class="primary-content">
             <div class="row">
+                <?php if($result['chude']=="Tin tức"||$result['chude']=="Thông báo")
+                {?>
                 <div class="col-md-4 col-lg-3 slide-left mb-4 mb-md-0">
                     <div class="tlu-menu ng-scope" ng-controller="myCntrl1534">
                         <div class="heading1">
@@ -23,6 +25,12 @@ $result = mysqli_fetch_assoc(mysqli_query($conn, $sql));
                         </div>
                     </div>
                 </div>
+                <?php
+                }
+                else {
+                    include("menuctdt.php");
+                }
+                ?>
                 <div class="col-md-8 col-lg-9 col-main">
                     <div class="col-md-12" style="border: 1px solid #ff6e00;">
                         <h1 style="text-align:center; padding: 10px 0px;"><?php echo $result['tieude']; ?></h1>

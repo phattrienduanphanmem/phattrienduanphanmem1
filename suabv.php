@@ -10,15 +10,7 @@ $row = mysqli_fetch_assoc(mysqli_query($conn, $sql));
 
 $sqlpost = "Select * from baiviet where mabv = '$mabv'";
 $rowpost = mysqli_fetch_assoc(mysqli_query($conn, $sqlpost));
-Switch($rowpost['chude']){
-    case 'Thông báo':
-        $chude='tb';
-        break;
-    case 'Tin tức':
-        $chude='tt';
-        break;
 
-}
 ?>
 
 <body id="page-top">
@@ -42,7 +34,7 @@ Switch($rowpost['chude']){
                         <ul class="nav navbar-nav flex-nowrap ml-auto">
                             <li class="nav-item dropdown no-arrow" role="presentation">
                                 <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small"><?php echo $row['tentk']?></span><img class="border rounded-circle img-profile" src="images/avatar5.jpeg"></a>
-                                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="hoso.php?id=<?php echo $row['matk']?>"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
+                                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="hoso.php"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
                                     <div class="dropdown-divider"></div><a class="dropdown-item" role="presentation" href="logout.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a></div>
                                 </div>
                             </li>
@@ -53,9 +45,13 @@ Switch($rowpost['chude']){
                 <div class="container-fluid">
                     <h6 style="color: rgb(0,0,0);">Chủ đề bài viết</h6>
                     <select name="chude" id="chude" class="form-control">
-                    <option value="<?php echo $chude?>" style="color: red;"><?php echo $rowpost['chude'] ?></option>
+                    <option value="<?php echo $rowpost['chude']?>" style="color: red;"><?php echo $rowpost['chude'] ?></option>
                     <option value="tt">Tin tức</option>
                     <option value="tb">Thông báo</option>
+                    <option value="Kế hoạch đào tạo đại học chính quy">Kế hoạch đào tạo đại học chính quy</option>
+                    <option value="Kế hoạch đào tạo thạc sĩ">Kế hoạch đào tạo thạc sĩ</option>
+                    <option value="Kế hoạch đào tạo tiến sĩ">Kế hoạch đào tạo tiến sĩ</option>
+                    <option value="Kế hoạch đào tạo hệ vừa học vừa làm">Kế hoạch đào tạo hệ vừa học vừa làm</option>
                     </select>
                     <h6 style="color: rgb(0,0,0);">Tiêu đề bài viết</h6><input class="form-control" id="tieude"name="tieude" type="text" required value="<?php echo $rowpost['tieude'] ?>">
                     <div class="row">
