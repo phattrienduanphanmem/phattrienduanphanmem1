@@ -2,7 +2,7 @@
     require('connect.php');
     if(isset($_POST['id'])){
         $id=$_POST['id'];
-        $result=mysqli_query($conn, "select * from quan where matinh='$id'");
+        $result=mysqli_query($conn, "select * from quan where matinh='$id' order by tenquan");
         echo '<option value="" ></option>';
         while($row = mysqli_fetch_array($result)){
             echo '<option value="'.$row['maquan'].'" >' .$row['tenquan']. '</option>';
@@ -10,7 +10,7 @@
     }
     if(isset($_POST['idtruong'])){
         $id=$_POST['idtruong'];
-        $result=mysqli_query($conn, "select * from truong where maquan='$id'");
+        $result=mysqli_query($conn, "select * from truong where maquan='$id' order by tentruong");
         echo '<option value="" ></option>';
         while($row = mysqli_fetch_array($result)){
             echo '<option value="'.$row['matruong'].'" >' .$row['tentruong']. '</option>';

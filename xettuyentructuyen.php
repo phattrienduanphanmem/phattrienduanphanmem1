@@ -3,7 +3,7 @@ include("header.php");
 require('connect.php');
 ?>
 <?php
-$sqltinh  = "select * from tinh";
+$sqltinh  = "select * from tinh order by tentinh";
 mysqli_set_charset($conn, 'UTF8');
 $resulttinh = mysqli_query($conn, $sqltinh);
 $resulttinh0 = mysqli_query($conn, $sqltinh);
